@@ -62,7 +62,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 98,
-    stars: 146825,
+    stars: 146824,
     pricing: "Free / OSS",
     bestFor:
       "Teams that need every integration and a huge tutorial surface — accept the abstraction tax.",
@@ -236,7 +236,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 100,
-    stars: 181416,
+    stars: 181418,
     pricing: "Free / OSS (your hardware)",
     bestFor:
       "Running models entirely on your laptop with zero API keys — the best default for privacy-sensitive work.",
@@ -265,7 +265,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 97,
-    stars: 129111,
+    stars: 129113,
     pricing: "Free / OSS",
     bestFor: "Quantised CPU/GPU inference with no Python in the critical path.",
     repo: "https://github.com/ggml-org/llama.cpp",
@@ -293,7 +293,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 94,
-    stars: 92372,
+    stars: 92373,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Throughput-heavy self-hosted inference when one request at a time is no longer enough.",
@@ -409,7 +409,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 94,
-    stars: 91117,
+    stars: 91119,
     pricing: "Free / OSS (self-host)",
     bestFor:
       "Deep document parsing — tables, scanned PDFs — where naive chunking keeps failing you.",
@@ -438,7 +438,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 86,
-    stars: 34738,
+    stars: 34739,
     pricing: "Free / OSS (or managed cloud)",
     bestFor:
       "Adding filtered vector retrieval to an existing app without committing to a heavyweight framework.",
@@ -467,7 +467,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 85,
-    stars: 29350,
+    stars: 29351,
     pricing: "Free / OSS",
     bestFor:
       "Prototyping a retrieval idea in-memory before you pick a real vector database.",
@@ -496,7 +496,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 91,
-    stars: 58879,
+    stars: 58880,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Modelling a business workflow as a team of role-playing agents instead of one giant prompt.",
@@ -583,7 +583,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 85,
-    stars: 29622,
+    stars: 29623,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "A small, explicit agent loop with handoffs and guardrails — minimal magic, fast to read.",
@@ -612,7 +612,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 82,
-    stars: 21592,
+    stars: 21594,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Enterprise-flavoured agents that need evaluation, tracing and multi-agent orchestration on Vertex.",
@@ -699,7 +699,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 96,
-    stars: 110535,
+    stars: 110539,
     pricing: "Free tier + usage-based",
     bestFor:
       "One Postgres for auth, rows and embeddings — the shortest stack that still looks like a real product.",
@@ -757,7 +757,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 99,
-    stars: 166489,
+    stars: 166490,
     pricing: "Free / OSS",
     bestFor:
       "The default on-ramp for running, fine-tuning or quantising any open model yourself.",
@@ -786,7 +786,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 82,
-    stars: 21709,
+    stars: 21710,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Adapting a base model to your domain on a single GPU without full fine-tuning costs.",
@@ -873,7 +873,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 86,
-    stars: 34912,
+    stars: 34913,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Seeing what your prompts actually did in production — traces, costs and scores in one place.",
@@ -902,7 +902,7 @@ const KITS = [
     localFirst: false,
     activityScore: 4,
     popularity: 80,
-    stars: 15814,
+    stars: 15815,
     pricing: "Free / OSS",
     bestFor:
       "Putting numbers — faithfulness, context precision — on a RAG pipeline before you ship it.",
@@ -931,7 +931,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 84,
-    stars: 25346,
+    stars: 25347,
     pricing: "Free / OSS",
     bestFor:
       "A CLI-first regression suite that catches prompt changes before your users do.",
@@ -1018,7 +1018,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 91,
-    stars: 61870,
+    stars: 61871,
     pricing: "Free / OSS (AGPL or commercial licence)",
     bestFor:
       "Real-time object detection where you need a working model today and training tomorrow.",
@@ -1047,7 +1047,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 98,
-    stars: 134342,
+    stars: 134345,
     pricing: "Free / OSS",
     bestFor:
       "Node-graph image generation pipelines you can actually version, share and extend with custom nodes.",
@@ -1192,7 +1192,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 91,
-    stars: 59354,
+    stars: 59355,
     pricing: "Free / OSS",
     bestFor:
       "One OpenAI-shaped endpoint in front of every provider, with budgets, keys and fallbacks.",
@@ -1279,7 +1279,7 @@ const KITS = [
     localFirst: true,
     activityScore: 9,
     popularity: 94,
-    stars: 90535,
+    stars: 90536,
     pricing: "Free / OSS",
     bestFor:
       "Exposing your own tools and data to any MCP-capable assistant once, instead of per-client integrations.",

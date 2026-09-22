@@ -62,8 +62,17 @@ a persistent shortlist.
 - A weekly GitHub Action (`.github/workflows/refresh-kits.yml`, also runnable via
   **Run workflow**) refreshes `stars`, `license`, `activityScore` and `popularity` from the
   GitHub API, commits the result, and GitHub Pages redeploys.
-- Editorial fields (difficulty, hello-world time, maturity, `bestFor`, …) stay
-  human-curated.
+- **Dead kits are pruned**: a repo that returns 404/410 is removed from the catalog;
+  archived repos stay but are flagged `needsReview` and their activity score drops.
+- **Adding a kit is a two-line edit**: put `{ "name": "…", "repo": "https://github.com/…" }`
+  in `data/kits.json` and the script fills org, description, docs, languages, licence,
+  category and provisional ratings, flagging the entry `needsReview` until a human checks
+  the editorial fields.
+- **Discovery**: the same script searches GitHub for new starter-kit repos and appends
+  unseen ones to `data/candidates.json` — a review queue, not auto-published, since ratings
+  are judgement calls. Promote a candidate by copying it into `data/kits.json`.
+- Editorial fields (difficulty, hello-world time, maturity, `bestFor`, …) are never
+  overwritten once set.
 - Refresh locally with `node .github/scripts/update-kits.mjs` (optionally with
   `GITHUB_TOKEN` set for a higher rate limit).
 
@@ -228,6 +237,7 @@ index.html                      # dashboard markup (all sections)
 css/style.css                   # design tokens + component styles
 css/responsive.css              # media queries (1180 / 900 / 640 / 380 px)
 data/kits.json                  # 48-kit catalog — source of truth
+data/candidates.json            # auto-discovered kit suggestions (review queue)
 js/kits-data.js                 # generated KITS array (from data/kits.json)
 js/kits-meta.js                 # score helpers + derived filter lists
 js/app.js                       # filters, compare, charts, shortlist CRUD, theme

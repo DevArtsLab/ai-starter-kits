@@ -337,6 +337,9 @@
       kit.hasEvals
         ? '<span class="badge"><i class="fas fa-vial"></i> Evals</span>'
         : "",
+      kit.needsReview
+        ? '<span class="badge badge-warn" title="Auto-enriched entry — editorial ratings pending"><i class="fas fa-magnifying-glass"></i> Review</span>'
+        : "",
       "  </div>",
       '  <div class="kit-metrics">',
       '    <div class="metric"><span class="metric-label">Hello world</span><span class="metric-value">' +
@@ -350,7 +353,9 @@
         esc(formatStars(kit.stars)) +
         "</span></div>",
       "  </div>",
-      '  <p class="kit-models"><strong>Models:</strong> ' + esc(models) + "</p>",
+      kit.models.length
+        ? '  <p class="kit-models"><strong>Models:</strong> ' + esc(models) + "</p>"
+        : "",
       '  <div class="kit-actions">',
       repo
         ? '<a class="btn btn-sm" href="' +
