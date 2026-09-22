@@ -15,7 +15,7 @@
   --text-faint: #7683a3;
   --accent: #6d8cff;
   --accent-2: #38d9c4;
-  --accent-3: #f5a524;
+  --accent-3: #f4d2d291;
   --danger: #f2545b;
   --ok: #3ddc84;
   --orb-center: #b9c6ff;
@@ -40,7 +40,8 @@
   --text-faint: #6b7691;
   --accent: #3f5bd9;
   --accent-2: #0f9c8b;
-  --accent-3: #b8730a;
+  --accent-3: #8a7676;
+
   --danger: #cf2f39;
   --ok: #12855a;
   --orb-center: #3f5bd9;
@@ -67,7 +68,6 @@ body {
       rgba(109, 140, 255, 0.16),
       transparent 60%
     ),
-    radial-gradient(900px 460px at 92% 4%, rgba(56, 217, 196, 0.12), transparent 62%),
     var(--bg);
   color: var(--text);
   font-family: var(--font);

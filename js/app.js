@@ -622,6 +622,8 @@
     return instance;
   }
 
+  const SERIES_HUES = [228, 168, 108, 48, 348, 288];
+
   function chartPalette() {
     const styles = getComputedStyle(document.documentElement);
     const read = (name, fallback) =>
@@ -631,18 +633,7 @@
       title: read("--text", "#e8ecf8"),
       split: read("--border-soft", "#1b2440"),
       surface: read("--bg-elev-2", "#182240"),
-      series: [
-        "#6d8cff",
-        "#38d9c4",
-        "#f5a524",
-        "#a78bfa",
-        "#f472b6",
-        "#4ade80",
-        "#60a5fa",
-        "#fb923c",
-        "#22d3ee",
-        "#facc15",
-      ],
+      series: SERIES_HUES.map((h) => `hsl(${h}, 65%, 72%)`),
     };
   }
 
@@ -890,10 +881,7 @@
         barWidth: "55%",
         itemStyle: {
           borderRadius: [0, 5, 5, 0],
-          color: (p) =>
-            palette.series[
-              Math.min(palette.series.length - 1, Math.floor(p.dataIndex / 2))
-            ],
+          color: (p) => `hsl(228, 70%, ${78 - p.dataIndex * 4}%)`,
         },
         label: {
           show: true,
