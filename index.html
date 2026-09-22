@@ -17,7 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"
     />
 
     <link rel="stylesheet" href="css/style.css" />
@@ -38,13 +38,20 @@
 
         <nav class="topnav" aria-label="Dashboard sections">
           <ul class="topnav-list">
-            <li><a href="#overview-section" class="topnav-link active">Overview</a></li>
+            <li>
+              <a href="#overview-section" class="topnav-link active"
+                >Overview</a
+              >
+            </li>
             <li><a href="#catalog-section" class="topnav-link">Catalog</a></li>
             <li><a href="#compare-section" class="topnav-link">Compare</a></li>
-            <li><a href="#insights-section" class="topnav-link">Insights</a></li>
+            <li>
+              <a href="#insights-section" class="topnav-link">Insights</a>
+            </li>
             <li>
               <a href="#shortlist-section" class="topnav-link"
-                >Shortlist <span class="nav-count" id="shortlistNavCount">0</span></a
+                >Shortlist
+                <span class="nav-count" id="shortlistNavCount">0</span></a
               >
             </li>
           </ul>
@@ -79,22 +86,27 @@
         <div class="page-head-text">
           <h1>Pick the right AI starter kit in minutes, not weekends</h1>
           <p>
-            Every kit below is a real, open-source starting point. This board scores
-            them on the things that actually stall a project: time to a working demo,
-            stack coverage, difficulty, licence and total cost of ownership. Filter,
-            compare, then shortlist.
+            Every kit below is a real, open-source starting point. This board
+            scores them on the things that actually stall a project: time to a
+            working demo, stack coverage, difficulty, licence and total cost of
+            ownership. Filter, compare, then shortlist.
           </p>
         </div>
         <aside class="page-head-note">
           <i class="fas fa-circle-info" aria-hidden="true"></i>
           <p>
-            Ratings are editorial estimates authored for this demo dataset — not vendor
-            benchmarks. Links point to the projects' own repositories and docs.
+            Ratings are editorial estimates authored for this demo dataset — not
+            vendor benchmarks. Links point to the projects' own repositories and
+            docs.
           </p>
         </aside>
       </section>
 
-      <section class="stat-grid" id="stat-grid" aria-label="Catalog summary statistics">
+      <section
+        class="stat-grid"
+        id="stat-grid"
+        aria-label="Catalog summary statistics"
+      >
         <article class="stat-card">
           <span class="stat-icon"
             ><i class="fas fa-toolbox" aria-hidden="true"></i
@@ -110,7 +122,9 @@
           <span class="stat-label">Categories covered</span>
         </article>
         <article class="stat-card">
-          <span class="stat-icon"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+          <span class="stat-icon"
+            ><i class="fas fa-bolt" aria-hidden="true"></i
+          ></span>
           <span class="stat-value" id="statFast">0</span>
           <span class="stat-label">Ready in &le; 15 min</span>
         </article>
@@ -122,7 +136,9 @@
           <span class="stat-label">Run fully local</span>
         </article>
         <article class="stat-card">
-          <span class="stat-icon"><i class="fas fa-book" aria-hidden="true"></i></span>
+          <span class="stat-icon"
+            ><i class="fas fa-book" aria-hidden="true"></i
+          ></span>
           <span class="stat-value" id="statBeginner">0</span>
           <span class="stat-label">Beginner friendly</span>
         </article>
@@ -135,7 +151,11 @@
         </article>
       </section>
 
-      <section class="panel" id="catalog-section" aria-labelledby="catalog-heading">
+      <section
+        class="panel"
+        id="catalog-section"
+        aria-labelledby="catalog-heading"
+      >
         <header class="panel-head">
           <div>
             <h2 id="catalog-heading">Kit catalog</h2>
@@ -201,7 +221,9 @@
           </div>
 
           <div class="field">
-            <label class="field-label" for="maxDifficulty">Difficulty up to</label>
+            <label class="field-label" for="maxDifficulty"
+              >Difficulty up to</label
+            >
             <select id="maxDifficulty">
               <option value="5">Any difficulty</option>
               <option value="1">Beginner</option>
@@ -246,18 +268,20 @@
           >
           <label class="chip-toggle"
             ><input type="checkbox" id="filterKeyless" /><span
-              ><i class="fas fa-key" aria-hidden="true"></i> No API key needed</span
+              ><i class="fas fa-key" aria-hidden="true"></i> No API key
+              needed</span
             ></label
           >
           <label class="chip-toggle"
             ><input type="checkbox" id="filterUI" /><span
-              ><i class="fas fa-window-maximize" aria-hidden="true"></i> Includes a
-              UI</span
+              ><i class="fas fa-window-maximize" aria-hidden="true"></i>
+              Includes a UI</span
             ></label
           >
           <label class="chip-toggle"
             ><input type="checkbox" id="filterEvals" /><span
-              ><i class="fas fa-vial" aria-hidden="true"></i> Eval / tracing</span
+              ><i class="fas fa-vial" aria-hidden="true"></i> Eval /
+              tracing</span
             ></label
           >
           <button type="button" class="btn btn-text" id="resetFilters">
@@ -268,7 +292,8 @@
         <p class="result-bar">
           <span id="resultCount">0 kits</span>
           <span class="result-hint"
-            >Click <em>Compare</em> on up to 4 kits to build a side-by-side table.</span
+            >Click <em>Compare</em> on up to 4 kits to build a side-by-side
+            table.</span
           >
         </p>
 
@@ -297,12 +322,16 @@
 
         <p class="empty-state" id="catalogEmpty" hidden>
           <i class="fas fa-filter-circle-xmark" aria-hidden="true"></i>
-          No kit matches those filters. Try widening the difficulty or clearing the
-          requirement toggles.
+          No kit matches those filters. Try widening the difficulty or clearing
+          the requirement toggles.
         </p>
       </section>
 
-      <section class="panel" id="compare-section" aria-labelledby="compare-heading">
+      <section
+        class="panel"
+        id="compare-section"
+        aria-labelledby="compare-heading"
+      >
         <header class="panel-head">
           <div>
             <h2 id="compare-heading">Side-by-side comparison</h2>
@@ -317,12 +346,17 @@
         <div id="compareBody" class="compare-body">
           <p class="empty-state">
             <i class="fas fa-scale-balanced" aria-hidden="true"></i>
-            Nothing selected yet — choose <em>Compare</em> on a couple of kit cards.
+            Nothing selected yet — choose <em>Compare</em> on a couple of kit
+            cards.
           </p>
         </div>
       </section>
 
-      <section class="panel" id="insights-section" aria-labelledby="insights-heading">
+      <section
+        class="panel"
+        id="insights-section"
+        aria-labelledby="insights-heading"
+      >
         <header class="panel-head">
           <div>
             <h2 id="insights-heading">Insights</h2>
@@ -378,13 +412,17 @@
         </div>
       </section>
 
-      <section class="panel" id="shortlist-section" aria-labelledby="shortlist-heading">
+      <section
+        class="panel"
+        id="shortlist-section"
+        aria-labelledby="shortlist-heading"
+      >
         <header class="panel-head">
           <div>
             <h2 id="shortlist-heading">Your shortlist</h2>
             <p class="panel-sub">
-              Saved to the project's <code>shortlist</code> table via the storage API —
-              reopen this page and it is still here.
+              Saved to the project's <code>shortlist</code> table via the
+              storage API — reopen this page and it is still here.
             </p>
           </div>
           <button type="button" class="btn btn-text" id="refreshShortlist">
@@ -393,7 +431,8 @@
         </header>
         <div id="shortlistBody" class="shortlist-body">
           <p class="empty-state">
-            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading shortlist…
+            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading
+            shortlist…
           </p>
         </div>
       </section>
@@ -401,9 +440,9 @@
 
     <footer class="page-foot">
       <p>
-        <strong>StarterKit Radar</strong> — a static dashboard. Catalog data lives in
-        <code>data/kits.json</code> and is refreshed weekly from the GitHub API;
-        shortlists persist through the RESTful Table API.
+        <strong>StarterKit Radar</strong> — a static dashboard. Catalog data
+        lives in <code>data/kits.json</code> and is refreshed weekly from the
+        GitHub API; shortlists persist through the RESTful Table API.
       </p>
       <p class="foot-note">
         No affiliation with the projects listed. Names and logos belong to their
@@ -411,7 +450,9 @@
       </p>
       <p class="foot-credit">
         Made with <i class="fas fa-heart foot-heart" aria-hidden="true"></i> by
-        <a href="https://devartslab.com" target="_blank" rel="noopener">DevArts Lab</a>
+        <a href="https://devartslab.com" target="_blank" rel="noopener"
+          >DevArts Lab</a
+        >
         &middot; 2026
       </p>
     </footer>
@@ -423,7 +464,7 @@
       aria-atomic="true"
     ></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js"></script>
     <script src="js/kits-data.js"></script>
     <script src="js/kits-meta.js"></script>
     <script src="js/app.js"></script>

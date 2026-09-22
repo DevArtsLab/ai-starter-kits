@@ -6,7 +6,7 @@
     "category": "Full-Stack Web App",
     "languages": ["TypeScript", "React", "Next.js"],
     "models": ["OpenAI", "Anthropic", "Google Gemini", "Mistral", "Ollama"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "difficulty": 2,
     "timeToHelloWorld": 10,
     "maturity": 9,
@@ -19,13 +19,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 84,
-    "stars": 26885,
+    "popularity": 79,
+    "stars": 26889,
     "pricing": "Free / OSS (you pay model usage)",
     "bestFor": "Shipping a production chat or generative UI feature into an existing Next.js app tonight.",
     "repo": "https://github.com/vercel/ai",
-    "docs": "https://sdk.vercel.ai/docs",
-    "score": 9
+    "docs": "https://sdk.vercel.ai/docs"
   },
   {
     "id": "langchain-quickstart",
@@ -33,7 +32,13 @@
     "org": "LangChain",
     "category": "Agent Framework",
     "languages": ["Python", "TypeScript"],
-    "models": ["OpenAI", "Anthropic", "Google Gemini", "Ollama", "Hugging Face"],
+    "models": [
+      "OpenAI",
+      "Anthropic",
+      "Google Gemini",
+      "Ollama",
+      "Hugging Face"
+    ],
     "license": "MIT",
     "difficulty": 4,
     "timeToHelloWorld": 20,
@@ -47,13 +52,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 98,
-    "stars": 146830,
+    "popularity": 92,
+    "stars": 146835,
     "pricing": "Free / OSS",
     "bestFor": "Teams that need every integration and a huge tutorial surface — accept the abstraction tax.",
     "repo": "https://github.com/langchain-ai/langchain",
-    "docs": "https://python.langchain.com/docs/tutorials/",
-    "score": 9
+    "docs": "https://python.langchain.com/docs/tutorials/"
   },
   {
     "id": "llamaindex-starter",
@@ -75,13 +79,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 90,
-    "stars": 52272,
+    "popularity": 84,
+    "stars": 52274,
     "pricing": "Free / OSS",
     "bestFor": "Getting from a folder of PDFs to answerable, cited retrieval in an afternoon.",
     "repo": "https://github.com/run-llama/llama_index",
-    "docs": "https://docs.llamaindex.ai/",
-    "score": 9
+    "docs": "https://docs.llamaindex.ai/"
   },
   {
     "id": "openai-cookbook",
@@ -103,13 +106,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 93,
-    "stars": 76114,
+    "popularity": 87,
+    "stars": 76116,
     "pricing": "Free / OSS (you pay model usage)",
     "bestFor": "Copy-paste recipes for structured outputs, embeddings and tool calling on the OpenAI API.",
     "repo": "https://github.com/openai/openai-cookbook",
-    "docs": "https://cookbook.openai.com/",
-    "score": 8.4
+    "docs": "https://cookbook.openai.com/"
   },
   {
     "id": "anthropic-cookbook",
@@ -131,13 +133,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 90,
-    "stars": 52877,
+    "popularity": 84,
+    "stars": 52884,
     "pricing": "Free / OSS (you pay model usage)",
     "bestFor": "Learning prompt patterns, tool use and vision workflows for Claude models.",
     "repo": "https://github.com/anthropics/anthropic-cookbook",
-    "docs": "https://docs.anthropic.com/",
-    "score": 7.8
+    "docs": "https://docs.anthropic.com/"
   },
   {
     "id": "streamlit-llm-app",
@@ -159,13 +160,12 @@
     "requiresKey": true,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 89,
-    "stars": 45812,
+    "popularity": 83,
+    "stars": 45814,
     "pricing": "Free / OSS",
     "bestFor": "The fastest path from a Python script to a shareable internal AI demo — no frontend code at all.",
     "repo": "https://github.com/streamlit/streamlit",
-    "docs": "https://docs.streamlit.io/",
-    "score": 7.9
+    "docs": "https://docs.streamlit.io/"
   },
   {
     "id": "gradio-interface",
@@ -187,13 +187,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 88,
-    "stars": 43594,
+    "popularity": 83,
+    "stars": 43596,
     "pricing": "Free / OSS",
     "bestFor": "Standing up a model demo UI in five lines and sharing it with a public link.",
     "repo": "https://github.com/gradio-app/gradio",
-    "docs": "https://www.gradio.app/guides/quickstart",
-    "score": 8.7
+    "docs": "https://www.gradio.app/guides/quickstart"
   },
   {
     "id": "ollama-playground",
@@ -215,13 +214,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 100,
-    "stars": 181423,
+    "popularity": 94,
+    "stars": 181429,
     "pricing": "Free / OSS (your hardware)",
     "bestFor": "Running models entirely on your laptop with zero API keys — the best default for privacy-sensitive work.",
     "repo": "https://github.com/ollama/ollama",
-    "docs": "https://docs.ollama.com/",
-    "score": 8.6
+    "docs": "https://docs.ollama.com/"
   },
   {
     "id": "llama-cpp-quickstart",
@@ -243,13 +241,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 97,
-    "stars": 129117,
+    "popularity": 91,
+    "stars": 129132,
     "pricing": "Free / OSS",
     "bestFor": "Quantised CPU/GPU inference with no Python in the critical path.",
     "repo": "https://github.com/ggml-org/llama.cpp",
-    "docs": "https://github.com/ggml-org/llama.cpp/tree/master/examples",
-    "score": 8.9
+    "docs": "https://github.com/ggml-org/llama.cpp/tree/master/examples"
   },
   {
     "id": "vllm-serving",
@@ -271,13 +268,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 94,
-    "stars": 92378,
+    "popularity": 89,
+    "stars": 92393,
     "pricing": "Free / OSS (GPU required)",
     "bestFor": "Throughput-heavy self-hosted inference when one request at a time is no longer enough.",
     "repo": "https://github.com/vllm-project/vllm",
-    "docs": "https://docs.vllm.ai/",
-    "score": 8.1
+    "docs": "https://docs.vllm.ai/"
   },
   {
     "id": "llamafile-bundle",
@@ -299,13 +295,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 84,
+    "popularity": 79,
     "stars": 26021,
     "pricing": "Free / OSS",
     "bestFor": "Distributing one runnable executable that serves a model on any machine — no installs, no deps.",
     "repo": "https://github.com/mozilla-ai/llamafile",
-    "docs": "https://docs.mozilla.ai/llamafile/",
-    "score": 6.9
+    "docs": "https://docs.mozilla.ai/llamafile/"
   },
   {
     "id": "llamafile",
@@ -327,13 +322,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 81,
+    "popularity": 77,
     "stars": 19160,
     "pricing": "Free / OSS",
     "bestFor": "Running inference in the browser via WebGPU/WebLLM — zero server, zero per-token cost.",
     "repo": "https://github.com/mlc-ai/web-llm",
-    "docs": "https://webllm.mlc.ai/docs/",
-    "score": 6.8
+    "docs": "https://webllm.mlc.ai/docs/"
   },
   {
     "id": "nextjs-rag-template",
@@ -342,7 +336,7 @@
     "category": "RAG / Retrieval",
     "languages": ["TypeScript", "Next.js"],
     "models": ["OpenAI", "Anthropic", "Google Gemini"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "difficulty": 3,
     "timeToHelloWorld": 25,
     "maturity": 8,
@@ -355,13 +349,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 8,
-    "popularity": 82,
+    "popularity": 77,
     "stars": 20963,
     "pricing": "Free / OSS (you pay hosting + model usage)",
     "bestFor": "A deployable chat-with-your-docs app with streaming, citations and a real UI already wired up.",
     "repo": "https://github.com/vercel/ai-chatbot",
-    "docs": "https://sdk.vercel.ai/docs/guides/rag-chatbot",
-    "score": 8.1
+    "docs": "https://sdk.vercel.ai/docs/guides/rag-chatbot"
   },
   {
     "id": "ragflow-platform",
@@ -383,13 +376,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 94,
-    "stars": 91123,
+    "popularity": 89,
+    "stars": 91124,
     "pricing": "Free / OSS (self-host)",
     "bestFor": "Deep document parsing — tables, scanned PDFs — where naive chunking keeps failing you.",
     "repo": "https://github.com/infiniflow/ragflow",
-    "docs": "https://ragflow.io/docs/dev/",
-    "score": 7.3
+    "docs": "https://ragflow.io/docs/dev/"
   },
   {
     "id": "qdrant-rag-starter",
@@ -411,13 +403,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 86,
-    "stars": 34741,
+    "popularity": 81,
+    "stars": 34744,
     "pricing": "Free / OSS (or managed cloud)",
     "bestFor": "Adding filtered vector retrieval to an existing app without committing to a heavyweight framework.",
     "repo": "https://github.com/qdrant/qdrant",
-    "docs": "https://qdrant.tech/documentation/quickstart/",
-    "score": 8
+    "docs": "https://qdrant.tech/documentation/quickstart/"
   },
   {
     "id": "chroma-starter",
@@ -439,13 +430,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 85,
-    "stars": 29353,
+    "popularity": 80,
+    "stars": 29354,
     "pricing": "Free / OSS",
     "bestFor": "Prototyping a retrieval idea in-memory before you pick a real vector database.",
     "repo": "https://github.com/chroma-core/chroma",
-    "docs": "https://docs.trychroma.com/",
-    "score": 8.1
+    "docs": "https://docs.trychroma.com/"
   },
   {
     "id": "crewai-starter",
@@ -467,13 +457,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 91,
-    "stars": 58882,
+    "popularity": 85,
+    "stars": 58886,
     "pricing": "Free / OSS (paid cloud tier)",
     "bestFor": "Modelling a business workflow as a team of role-playing agents instead of one giant prompt.",
     "repo": "https://github.com/crewAIInc/crewAI",
-    "docs": "https://docs.crewai.com/",
-    "score": 8
+    "docs": "https://docs.crewai.com/"
   },
   {
     "id": "autogen-studio",
@@ -495,13 +484,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 6,
-    "popularity": 91,
-    "stars": 61101,
+    "popularity": 86,
+    "stars": 61103,
     "pricing": "Free / OSS",
     "bestFor": "Research-style multi-agent conversations with a visual builder and event tracing built in.",
     "repo": "https://github.com/microsoft/autogen",
-    "docs": "https://microsoft.github.io/autogen/",
-    "score": 7.9
+    "docs": "https://microsoft.github.io/autogen/"
   },
   {
     "id": "langgraph-agent-template",
@@ -523,13 +511,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 88,
-    "stars": 42103,
+    "popularity": 83,
+    "stars": 42105,
     "pricing": "Free / OSS (paid platform tier)",
     "bestFor": "Long-running, stateful agents with retries, human-in-the-loop and checkpointed memory.",
     "repo": "https://github.com/langchain-ai/langgraph",
-    "docs": "https://langchain-ai.github.io/langgraph/",
-    "score": 8.2
+    "docs": "https://langchain-ai.github.io/langgraph/"
   },
   {
     "id": "openai-agents-sdk",
@@ -551,13 +538,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 85,
-    "stars": 29624,
+    "popularity": 80,
+    "stars": 29625,
     "pricing": "Free / OSS (you pay model usage)",
     "bestFor": "A small, explicit agent loop with handoffs and guardrails — minimal magic, fast to read.",
     "repo": "https://github.com/openai/openai-agents-python",
-    "docs": "https://openai.github.io/openai-agents-python/",
-    "score": 7.2
+    "docs": "https://openai.github.io/openai-agents-python/"
   },
   {
     "id": "google-adk",
@@ -579,13 +565,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 82,
-    "stars": 21595,
+    "popularity": 78,
+    "stars": 21597,
     "pricing": "Free / OSS (you pay model usage)",
     "bestFor": "Enterprise-flavoured agents that need evaluation, tracing and multi-agent orchestration on Vertex.",
     "repo": "https://github.com/google/adk-python",
-    "docs": "https://google.github.io/adk-docs/",
-    "score": 7.7
+    "docs": "https://google.github.io/adk-docs/"
   },
   {
     "id": "aws-bedrock-agents",
@@ -607,13 +592,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 6,
-    "popularity": 55,
+    "popularity": 52,
     "stars": 812,
     "pricing": "Pay-as-you-go (AWS)",
     "bestFor": "Teams already on AWS that need IAM-scoped agents talking to internal data sources.",
     "repo": "https://github.com/awslabs/amazon-bedrock-agent-samples",
-    "docs": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
-    "score": 7.2
+    "docs": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html"
   },
   {
     "id": "azure-ai-foundry-samples",
@@ -635,13 +619,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 52,
+    "popularity": 49,
     "stars": 548,
     "pricing": "Pay-as-you-go (Azure)",
     "bestFor": "Regulated environments that need private networking, content filters and audit trails out of the box.",
     "repo": "https://github.com/Azure-Samples/azureai-samples",
-    "docs": "https://learn.microsoft.com/azure/ai-foundry/",
-    "score": 7.5
+    "docs": "https://learn.microsoft.com/azure/ai-foundry/"
   },
   {
     "id": "supabase-vector-starter",
@@ -663,13 +646,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 96,
-    "stars": 110543,
+    "popularity": 90,
+    "stars": 110553,
     "pricing": "Free tier + usage-based",
     "bestFor": "One Postgres for auth, rows and embeddings — the shortest stack that still looks like a real product.",
     "repo": "https://github.com/supabase/supabase",
-    "docs": "https://supabase.com/docs/guides/ai",
-    "score": 8.1
+    "docs": "https://supabase.com/docs/guides/ai"
   },
   {
     "id": "firebase-genkit",
@@ -691,13 +673,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 72,
+    "popularity": 68,
     "stars": 6452,
     "pricing": "Free / OSS (you pay cloud usage)",
     "bestFor": "Shipping AI flows with a local dev UI, tracing and evaluations wired in from the first commit.",
     "repo": "https://github.com/firebase/genkit",
-    "docs": "https://firebase.google.com/docs/genkit",
-    "score": 7.3
+    "docs": "https://firebase.google.com/docs/genkit"
   },
   {
     "id": "huggingface-transformers-starter",
@@ -719,13 +700,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 99,
-    "stars": 166492,
+    "popularity": 93,
+    "stars": 166497,
     "pricing": "Free / OSS",
     "bestFor": "The default on-ramp for running, fine-tuning or quantising any open model yourself.",
     "repo": "https://github.com/huggingface/transformers",
-    "docs": "https://huggingface.co/docs/transformers/index",
-    "score": 9.4
+    "docs": "https://huggingface.co/docs/transformers/index"
   },
   {
     "id": "peft-lora-tuning",
@@ -747,13 +727,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 82,
+    "popularity": 78,
     "stars": 21710,
     "pricing": "Free / OSS (GPU required)",
     "bestFor": "Adapting a base model to your domain on a single GPU without full fine-tuning costs.",
     "repo": "https://github.com/huggingface/peft",
-    "docs": "https://huggingface.co/docs/peft/index",
-    "score": 7.7
+    "docs": "https://huggingface.co/docs/peft/index"
   },
   {
     "id": "unsloth-notebook",
@@ -775,13 +754,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 93,
+    "popularity": 87,
     "stars": 76549,
     "pricing": "Free / OSS (GPU required)",
     "bestFor": "Fine-tuning on a free Colab GPU when memory, not patience, is the constraint.",
     "repo": "https://github.com/unslothai/unsloth",
-    "docs": "https://docs.unsloth.ai/",
-    "score": 7.4
+    "docs": "https://docs.unsloth.ai/"
   },
   {
     "id": "axolotl-tuning",
@@ -803,13 +781,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 78,
+    "popularity": 73,
     "stars": 12491,
     "pricing": "Free / OSS (GPU required)",
     "bestFor": "Reproducible multi-GPU training runs driven entirely by versioned YAML configs.",
     "repo": "https://github.com/axolotl-ai-cloud/axolotl",
-    "docs": "https://docs.axolotl.ai/",
-    "score": 6.7
+    "docs": "https://docs.axolotl.ai/"
   },
   {
     "id": "langfuse-observability",
@@ -831,13 +808,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 86,
-    "stars": 34913,
+    "popularity": 81,
+    "stars": 34917,
     "pricing": "Free / OSS (paid cloud tier)",
     "bestFor": "Seeing what your prompts actually did in production — traces, costs and scores in one place.",
     "repo": "https://github.com/langfuse/langfuse",
-    "docs": "https://langfuse.com/docs",
-    "score": 8.1
+    "docs": "https://langfuse.com/docs"
   },
   {
     "id": "ragas-evaluation",
@@ -859,13 +835,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 4,
-    "popularity": 80,
-    "stars": 15815,
+    "popularity": 75,
+    "stars": 15816,
     "pricing": "Free / OSS",
     "bestFor": "Putting numbers — faithfulness, context precision — on a RAG pipeline before you ship it.",
     "repo": "https://github.com/explodinggradients/ragas",
-    "docs": "https://docs.ragas.io/",
-    "score": 6.9
+    "docs": "https://docs.ragas.io/"
   },
   {
     "id": "promptfoo-evals",
@@ -887,13 +862,12 @@
     "requiresKey": true,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 84,
-    "stars": 25350,
+    "popularity": 79,
+    "stars": 25353,
     "pricing": "Free / OSS",
     "bestFor": "A CLI-first regression suite that catches prompt changes before your users do.",
     "repo": "https://github.com/promptfoo/promptfoo",
-    "docs": "https://www.promptfoo.dev/docs/quickstart/",
-    "score": 8.1
+    "docs": "https://www.promptfoo.dev/docs/quickstart/"
   },
   {
     "id": "opik-eval-starter",
@@ -915,13 +889,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 83,
-    "stars": 22187,
+    "popularity": 78,
+    "stars": 22188,
     "pricing": "Free / OSS (paid cloud tier)",
     "bestFor": "Tracking prompt experiments side by side the way you already track ML runs.",
     "repo": "https://github.com/comet-ml/opik",
-    "docs": "https://www.comet.com/docs/opik/",
-    "score": 7.1
+    "docs": "https://www.comet.com/docs/opik/"
   },
   {
     "id": "fiftyone-vision",
@@ -943,13 +916,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 77,
+    "popularity": 72,
     "stars": 11106,
     "pricing": "Free / OSS (paid enterprise tier)",
     "bestFor": "Curating, visualising and debugging messy image datasets before they poison your model.",
     "repo": "https://github.com/voxel51/fiftyone",
-    "docs": "https://docs.voxel51.com/",
-    "score": 7.7
+    "docs": "https://docs.voxel51.com/"
   },
   {
     "id": "ultralytics-yolo",
@@ -971,13 +943,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 91,
-    "stars": 61878,
+    "popularity": 86,
+    "stars": 61882,
     "pricing": "Free / OSS (AGPL or commercial licence)",
     "bestFor": "Real-time object detection where you need a working model today and training tomorrow.",
     "repo": "https://github.com/ultralytics/ultralytics",
-    "docs": "https://docs.ultralytics.com/",
-    "score": 8.9
+    "docs": "https://docs.ultralytics.com/"
   },
   {
     "id": "comfyui-workflows",
@@ -999,13 +970,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 98,
-    "stars": 134354,
+    "popularity": 92,
+    "stars": 134370,
     "pricing": "Free / OSS",
     "bestFor": "Node-graph image generation pipelines you can actually version, share and extend with custom nodes.",
     "repo": "https://github.com/comfyanonymous/ComfyUI",
-    "docs": "https://docs.comfy.org/",
-    "score": 8.6
+    "docs": "https://docs.comfy.org/"
   },
   {
     "id": "automatic1111-webui",
@@ -1027,13 +997,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 4,
-    "popularity": 99,
-    "stars": 165054,
+    "popularity": 93,
+    "stars": 165053,
     "pricing": "Free / OSS",
     "bestFor": "The classic batteries-included diffusion UI with the largest extension library on the planet.",
     "repo": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
-    "docs": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
-    "score": 8
+    "docs": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki"
   },
   {
     "id": "diffusers-starter",
@@ -1055,13 +1024,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 86,
-    "stars": 34567,
+    "popularity": 81,
+    "stars": 34570,
     "pricing": "Free / OSS (GPU recommended)",
     "bestFor": "Scriptable diffusion when you need pipelines in code rather than clicking through a GUI.",
     "repo": "https://github.com/huggingface/diffusers",
-    "docs": "https://huggingface.co/docs/diffusers/index",
-    "score": 8.9
+    "docs": "https://huggingface.co/docs/diffusers/index"
   },
   {
     "id": "whisper-cpp-starter",
@@ -1083,13 +1051,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 90,
-    "stars": 53849,
+    "popularity": 85,
+    "stars": 53851,
     "pricing": "Free / OSS",
     "bestFor": "Offline, fast speech-to-text on CPU — no cloud round trip and no per-minute billing.",
     "repo": "https://github.com/ggml-org/whisper.cpp",
-    "docs": "https://github.com/ggml-org/whisper.cpp/tree/master/examples",
-    "score": 7.9
+    "docs": "https://github.com/ggml-org/whisper.cpp/tree/master/examples"
   },
   {
     "id": "pipecat-voice",
@@ -1097,7 +1064,13 @@
     "org": "Daily",
     "category": "Audio / Speech",
     "languages": ["Python"],
-    "models": ["OpenAI", "Anthropic", "Google Gemini", "Deepgram", "ElevenLabs"],
+    "models": [
+      "OpenAI",
+      "Anthropic",
+      "Google Gemini",
+      "Deepgram",
+      "ElevenLabs"
+    ],
     "license": "BSD-2-Clause",
     "difficulty": 4,
     "timeToHelloWorld": 40,
@@ -1111,13 +1084,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 80,
-    "stars": 15758,
+    "popularity": 75,
+    "stars": 15760,
     "pricing": "Free / OSS (you pay STT/TTS/LLM usage)",
     "bestFor": "Real-time voice agents — barge-in, interruption and turn-taking handled by the framework.",
     "repo": "https://github.com/pipecat-ai/pipecat",
-    "docs": "https://docs.pipecat.ai/",
-    "score": 7.3
+    "docs": "https://docs.pipecat.ai/"
   },
   {
     "id": "litellm-proxy",
@@ -1139,13 +1111,12 @@
     "requiresKey": true,
     "localFirst": true,
     "activityScore": 10,
-    "popularity": 91,
-    "stars": 59356,
+    "popularity": 85,
+    "stars": 59368,
     "pricing": "Free / OSS",
     "bestFor": "One OpenAI-shaped endpoint in front of every provider, with budgets, keys and fallbacks.",
     "repo": "https://github.com/BerriAI/litellm",
-    "docs": "https://docs.litellm.ai/",
-    "score": 7.9
+    "docs": "https://docs.litellm.ai/"
   },
   {
     "id": "guardrails-ai-starter",
@@ -1167,13 +1138,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 74,
+    "popularity": 69,
     "stars": 7441,
     "pricing": "Free / OSS (paid cloud tier)",
     "bestFor": "Forcing structured, schema-valid model output instead of grepping raw text for JSON.",
     "repo": "https://github.com/guardrails-ai/guardrails",
-    "docs": "https://www.guardrailsai.com/docs",
-    "score": 7.2
+    "docs": "https://www.guardrailsai.com/docs"
   },
   {
     "id": "nemo-guardrails",
@@ -1195,13 +1165,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 73,
+    "popularity": 69,
     "stars": 7178,
     "pricing": "Free / OSS",
     "bestFor": "Conversational policy rails — keep a bot on-topic and inside its lane without prompt whack-a-mole.",
     "repo": "https://github.com/NVIDIA/NeMo-Guardrails",
-    "docs": "https://docs.nvidia.com/nemo/guardrails/",
-    "score": 7
+    "docs": "https://docs.nvidia.com/nemo/guardrails/"
   },
   {
     "id": "mcp-quickstart",
@@ -1210,7 +1179,7 @@
     "category": "Tooling / MCP",
     "languages": ["TypeScript", "Python"],
     "models": ["Any (host-agnostic)"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "difficulty": 3,
     "timeToHelloWorld": 25,
     "maturity": 7,
@@ -1223,13 +1192,12 @@
     "requiresKey": false,
     "localFirst": true,
     "activityScore": 9,
-    "popularity": 94,
-    "stars": 90538,
+    "popularity": 89,
+    "stars": 90541,
     "pricing": "Free / OSS",
     "bestFor": "Exposing your own tools and data to any MCP-capable assistant once, instead of per-client integrations.",
     "repo": "https://github.com/modelcontextprotocol/servers",
-    "docs": "https://modelcontextprotocol.io/quickstart/server",
-    "score": 8.5
+    "docs": "https://modelcontextprotocol.io/quickstart/server"
   },
   {
     "id": "openai-realtime-starter",
@@ -1251,13 +1219,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 2,
-    "popularity": 68,
+    "popularity": 64,
     "stars": 3614,
     "pricing": "Pay-as-you-go (OpenAI)",
     "bestFor": "Low-latency speech-to-speech over WebRTC when every extra round trip is audible.",
     "repo": "https://github.com/openai/openai-realtime-console",
-    "docs": "https://platform.openai.com/docs/guides/realtime",
-    "score": 6.6
+    "docs": "https://platform.openai.com/docs/guides/realtime"
   },
   {
     "id": "semantic-kernel-starter",
@@ -1279,13 +1246,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 85,
+    "popularity": 80,
     "stars": 28587,
     "pricing": "Free / OSS",
     "bestFor": ".NET shops that want plugins, planners and memory in the language their services already speak.",
     "repo": "https://github.com/microsoft/semantic-kernel",
-    "docs": "https://learn.microsoft.com/semantic-kernel/",
-    "score": 7.7
+    "docs": "https://learn.microsoft.com/semantic-kernel/"
   },
   {
     "id": "dspy-optimizer",
@@ -1307,13 +1273,12 @@
     "requiresKey": true,
     "localFirst": false,
     "activityScore": 10,
-    "popularity": 87,
-    "stars": 38189,
+    "popularity": 82,
+    "stars": 38191,
     "pricing": "Free / OSS",
     "bestFor": "Replacing hand-tuned prompt strings with compiled, metric-driven programs.",
     "repo": "https://github.com/stanfordnlp/dspy",
-    "docs": "https://dspy.ai/",
-    "score": 7.3
+    "docs": "https://dspy.ai/"
   },
   {
     "id": "smith-agentic-bench",
@@ -1335,13 +1300,12 @@
     "requiresKey": true,
     "localFirst": true,
     "activityScore": 6,
-    "popularity": 82,
+    "popularity": 77,
     "stars": 19489,
     "pricing": "Free / OSS",
     "bestFor": "Scoring agent runs on task success and step count when you have no formal eval set yet.",
     "repo": "https://github.com/openai/evals",
-    "docs": "https://github.com/openai/evals/blob/main/README.md",
-    "score": 5.3
+    "docs": "https://github.com/openai/evals/blob/main/README.md"
   },
   {
     "name": "n8n Self-hosted AI Starter Kit",
@@ -1369,6 +1333,90 @@
     "localFirst": true,
     "languages": ["Docker Compose"],
     "needsReview": true,
-    "popularity": 80
+    "popularity": 75
+  },
+  {
+    "name": "OpenClaw",
+    "repo": "https://github.com/openclaw/openclaw",
+    "stars": 390232,
+    "activityScore": 10,
+    "id": "openclaw",
+    "org": "openclaw",
+    "bestFor": "A self-hosted personal AI agent you talk to over WhatsApp, Telegram or Slack — runs on your own hardware and keeps working while you sleep.",
+    "docs": "https://openclaw.ai",
+    "category": "Agent Framework",
+    "difficulty": 3,
+    "timeToHelloWorld": 20,
+    "maturity": 7,
+    "ecosystem": 9,
+    "costFriendliness": 6,
+    "docsQuality": 7,
+    "pricing": "Free (you pay model usage)",
+    "models": ["Anthropic", "OpenAI", "Ollama"],
+    "license": "MIT",
+    "hasUI": true,
+    "hasBackend": true,
+    "hasEvals": false,
+    "requiresKey": true,
+    "localFirst": true,
+    "languages": ["TypeScript", "Swift", "Kotlin", "JavaScript"],
+    "needsReview": true,
+    "popularity": 100
+  },
+  {
+    "name": "Intel AI Playground",
+    "repo": "https://github.com/intel/AI-Playground",
+    "stars": 984,
+    "license": "MIT",
+    "activityScore": 10,
+    "id": "ai-playground",
+    "org": "intel",
+    "bestFor": "A polished desktop app for local image generation and LLM chat on Intel Arc and Core Ultra PCs — no cloud, no API keys.",
+    "docs": "https://github.com/intel/AI-Playground",
+    "category": "Local / Self-Hosted",
+    "difficulty": 1,
+    "timeToHelloWorld": 20,
+    "maturity": 5,
+    "ecosystem": 6,
+    "costFriendliness": 7,
+    "docsQuality": 6,
+    "pricing": "Free / OSS (Intel Arc / Core Ultra hardware)",
+    "models": ["Llama", "Phi", "Stable Diffusion"],
+    "hasUI": true,
+    "hasBackend": false,
+    "hasEvals": false,
+    "requiresKey": false,
+    "localFirst": true,
+    "languages": ["TypeScript", "Vue", "Python", "CSS"],
+    "needsReview": true,
+    "popularity": 54
+  },
+  {
+    "name": "Awesome n8n Templates",
+    "repo": "https://github.com/enescingoz/awesome-n8n-templates",
+    "stars": 25517,
+    "activityScore": 10,
+    "id": "awesome-n8n-templates",
+    "org": "enescingoz",
+    "bestFor": "280+ ready-to-import n8n workflow templates — AI agents, RAG chatbots, email automation and document processing.",
+    "docs": "https://github.com/enescingoz/awesome-n8n-templates#readme",
+    "category": "Reference / Cookbook",
+    "difficulty": 1,
+    "timeToHelloWorld": 10,
+    "maturity": 6,
+    "ecosystem": 8,
+    "costFriendliness": 8,
+    "docsQuality": 7,
+    "pricing": "Free templates (n8n + model costs apply)",
+    "models": ["OpenAI", "Anthropic", "Ollama"],
+    "license": "CC-BY-4.0",
+    "hasUI": false,
+    "hasBackend": false,
+    "hasEvals": false,
+    "requiresKey": true,
+    "localFirst": true,
+    "languages": ["n8n workflows (JSON)"],
+    "needsReview": true,
+    "popularity": 79
   }
 ]

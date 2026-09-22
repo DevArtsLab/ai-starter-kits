@@ -1,0 +1,21 @@
+{
+  "note": "Repos permanently excluded from candidate discovery. Entries here are purged from data/candidates.json and never re-added. Use full_name slugs (owner/repo).",
+  "ignored": [
+    "ykhli/local-ai-stack",
+    "cirosantilli/china-dictatorship",
+    "gege-circle/.github",
+    "nexu-io/html-video",
+    "BagelHole/DevOps-Security-Agent-Skills",
+    "lucaswalter/n8n-ai-automations",
+    "mergisi/awesome-openclaw-agents",
+    "nateherkai/AIS-OS",
+    "ai-builders-foundation/ai-builders-curriculum",
+    "repowise-dev/claude-code-prompts",
+    "study8677/awesome-architecture",
+    "sullyo/webapp-starter",
+    "vercel-labs/coding-agent-template",
+    "fal-ai-community/video-starter-kit",
+    "GoogleCloudPlatform/agent-starter-pack",
+    "a16z-infra/ai-town"
+  ]
+}

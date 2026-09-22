@@ -29,10 +29,13 @@
    ========================================================================== */
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const DATA_PATH = new URL("../../data/kits.json", import.meta.url);
 const OUT_PATH = new URL("../../js/kits-data.js", import.meta.url);
 const CANDIDATES_PATH = new URL("../../data/candidates.json", import.meta.url);
+const IGNORED_PATH = new URL("../../data/ignored.json", import.meta.url);
 const TOKEN = process.env.GITHUB_TOKEN || "";
 
 const GENERATED_HEADER = `/* ============================================================================
@@ -53,11 +56,20 @@ const GENERATED_HEADER = `/* ===================================================
 /* Discovery queries: kept narrow ("starter/template" phrasing in name or
    description) so the candidate list stays reviewable rather than a firehose. */
 const SEARCH_QUERIES = [
-  { q: "starter kit ai in:name,description stars:>1000", via: "ai starter kit" },
+  {
+    q: "starter kit ai in:name,description stars:>1000",
+    via: "ai starter kit",
+  },
   { q: "llm starter in:name,description stars:>800", via: "llm starter" },
   { q: "rag starter in:name,description stars:>500", via: "rag starter" },
-  { q: "ai agent template in:name,description stars:>1000", via: "agent template" },
-  { q: "chatbot starter in:name,description stars:>500", via: "chatbot starter" },
+  {
+    q: "ai agent template in:name,description stars:>1000",
+    via: "agent template",
+  },
+  {
+    q: "chatbot starter in:name,description stars:>500",
+    via: "chatbot starter",
+  },
   { q: "mcp starter in:name,description stars:>300", via: "mcp starter" },
 ];
 const KIT_WORDS =
@@ -67,7 +79,10 @@ const MAX_CANDIDATES = 150;
 /* First match wins — ordered so specific categories beat broad ones. */
 const CATEGORY_HINTS = [
   [/(rag|retrieval|vector|embedding|semantic-search)/i, "RAG / Retrieval"],
-  [/(eval|observability|tracing|monitor|telemetry)/i, "Evaluation / Observability"],
+  [
+    /(eval|observability|tracing|monitor|telemetry)/i,
+    "Evaluation / Observability",
+  ],
   [/(fine-?tun|qlora|lora|training)/i, "Fine-Tuning"],
   [/(guardrail|safety|moderation|security)/i, "Guardrails / Safety"],
   [/(mcp|tool[- ]?use|function-calling)/i, "Tooling / MCP"],
@@ -148,6 +163,41 @@ async function gh(path) {
   return { status: res.status, data: await res.json() };
 }
 
+/* GitHub's licence detector returns NOASSERTION for files it can't classify
+   (non-standard formatting, CC licences, recently added files). Fall back to
+   fetching the LICENSE blob and matching common texts. First match wins —
+   order more-specific patterns before broader ones. */
+const LICENSE_SNIFFS = [
+  [/GNU AFFERO GENERAL PUBLIC LICENSE[\s\S]{0,400}Version 3/i, "AGPL-3.0"],
+  [/GNU GENERAL PUBLIC LICENSE[\s\S]{0,400}Version 3/i, "GPL-3.0"],
+  [/Apache License[\s\S]{0,400}Version 2\.0/i, "Apache-2.0"],
+  [/MIT License|Permission is hereby granted, free of charge/i, "MIT"],
+  [/Attribution-ShareAlike 4\.0 International/i, "CC-BY-SA-4.0"],
+  [
+    /Attribution 4\.0 International|Creative Commons Attribution 4\.0/i,
+    "CC-BY-4.0",
+  ],
+  [/CC0 1\.0|Creative Commons Zero/i, "CC0-1.0"],
+  [/Mozilla Public License[\s\S]{0,400}Version 2\.0/i, "MPL-2.0"],
+  [
+    /Neither the name (of|of the).{0,200}(used to endorse|promote)/is,
+    "BSD-3-Clause",
+  ],
+  [/Redistribution and use in source and binary forms/i, "BSD-2-Clause"],
+];
+
+async function detectLicense(repo) {
+  const spdx = repo.license && repo.license.spdx_id;
+  if (spdx && spdx !== "NOASSERTION") return spdx;
+  const { data } = await gh(`/repos/${repo.full_name}/license`);
+  if (!data || !data.content) return null;
+  const text = Buffer.from(data.content, "base64").toString("utf8");
+  for (const [pattern, id] of LICENSE_SNIFFS) {
+    if (pattern.test(text)) return id;
+  }
+  return null;
+}
+
 /* ------------------------------------------------------------ *
  * Phase 1+2: fetch every catalog repo, refresh or drop entries *
  * ------------------------------------------------------------ */
@@ -178,8 +228,8 @@ for (const { kit, status, repo, error } of fetched) {
     continue;
   }
   kit.stars = repo.stargazers_count;
-  const spdx = repo.license && repo.license.spdx_id;
-  if (spdx && spdx !== "NOASSERTION") kit.license = spdx;
+  const license = await detectLicense(repo);
+  if (license) kit.license = license;
   kit.activityScore = activityFromPush(repo.pushed_at);
   if (repo.archived) {
     kit.activityScore = Math.min(kit.activityScore, 2);
@@ -216,12 +266,23 @@ for (const kit of kept) {
   fill("difficulty", 3, true);
   fill("timeToHelloWorld", 30, true);
   fill("maturity", maturityFromRepo(repo), true);
-  fill("ecosystem", Math.min(9, Math.round(Math.log10(kit.stars + 1) * 2)), true);
+  fill(
+    "ecosystem",
+    Math.min(9, Math.round(Math.log10(kit.stars + 1) * 2)),
+    true,
+  );
   fill("costFriendliness", kit.license ? 7 : 5, true);
   fill("docsQuality", repo.has_wiki || repo.homepage ? 6 : 5, true);
   fill("pricing", kit.license ? "Free / OSS" : "Check repo licence", true);
   fill("models", []);
-  for (const flag of ["hasUI", "hasBackend", "hasEvals", "requiresKey", "localFirst"]) {
+  fill("license", "Unspecified");
+  for (const flag of [
+    "hasUI",
+    "hasBackend",
+    "hasEvals",
+    "requiresKey",
+    "localFirst",
+  ]) {
     fill(flag, false);
   }
 
@@ -243,11 +304,14 @@ for (const kit of kept) {
 
 const maxStars = Math.max(...kept.map((k) => k.stars || 0), 1);
 for (const kit of kept) {
+  delete kit.score; // runtime-computed by js/kits-meta.js — never stored
   kit.popularity = Math.max(
     1,
     Math.min(
       100,
-      Math.round((100 * Math.log10((kit.stars || 0) + 1)) / Math.log10(maxStars + 1)),
+      Math.round(
+        (100 * Math.log10((kit.stars || 0) + 1)) / Math.log10(maxStars + 1),
+      ),
     ),
   );
 }
@@ -270,6 +334,16 @@ const knownSlugs = new Set(
     .filter(Boolean)
     .map((s) => s.toLowerCase()),
 );
+let ignoredSlugs = new Set();
+if (existsSync(IGNORED_PATH)) {
+  try {
+    const list = JSON.parse(readFileSync(IGNORED_PATH, "utf8")).ignored || [];
+    ignoredSlugs = new Set(list.map((s) => s.toLowerCase()));
+  } catch {
+    /* malformed ignore file — ignore it */
+  }
+}
+
 const candidates = candidatesFile.candidates || [];
 const newCandidates = [];
 
@@ -283,7 +357,8 @@ for (const { q, via } of SEARCH_QUERIES) {
   }
   for (const repo of data.items || []) {
     const slug = repo.full_name.toLowerCase();
-    if (repo.archived || knownSlugs.has(slug)) continue;
+    if (repo.archived || knownSlugs.has(slug) || ignoredSlugs.has(slug))
+      continue;
     const existing = candidates.find((c) => c.full_name.toLowerCase() === slug);
     if (existing) {
       existing.stars = repo.stargazers_count;
@@ -310,8 +385,12 @@ for (const { q, via } of SEARCH_QUERIES) {
   }
 }
 
-// Drop candidates that have since been promoted into the catalog, then cap.
-const active = candidates.filter((c) => !knownSlugs.has(c.full_name.toLowerCase()));
+// Drop candidates that were promoted into the catalog or added to ignored.json.
+const active = candidates.filter(
+  (c) =>
+    !knownSlugs.has(c.full_name.toLowerCase()) &&
+    !ignoredSlugs.has(c.full_name.toLowerCase()),
+);
 active.sort((a, b) => (b.stars || 0) - (a.stars || 0));
 const trimmed = active.slice(0, MAX_CANDIDATES);
 candidatesFile = {
@@ -334,13 +413,34 @@ writeFileSync(
 );
 writeFileSync(CANDIDATES_PATH, JSON.stringify(candidatesFile, null, 2) + "\n");
 
+// Normalise output with prettier so generated files match repo formatting and
+// re-runs stay diff-free. Skipped silently if npx/prettier can't run.
+try {
+  execFileSync(
+    "npx",
+    [
+      "--yes",
+      "prettier@3",
+      "--write",
+      ...[DATA_PATH, OUT_PATH, CANDIDATES_PATH, IGNORED_PATH].map(
+        fileURLToPath,
+      ),
+    ],
+    { stdio: "pipe" },
+  );
+} catch {
+  console.warn("prettier skipped (npx unavailable) — files left unformatted.");
+}
+
 console.log(
   `Refreshed ${kept.length} kits (max stars: ${maxStars}). ` +
     `${enriched.length} enriched, ${newCandidates.length} new candidates ` +
     `(${trimmed.length} total in data/candidates.json).`,
 );
-if (enriched.length) console.log("Enriched (needsReview): " + enriched.join(", "));
-if (removed.length) console.warn("REMOVED (repo gone):\n  " + removed.join("\n  "));
+if (enriched.length)
+  console.log("Enriched (needsReview): " + enriched.join(", "));
+if (removed.length)
+  console.warn("REMOVED (repo gone):\n  " + removed.join("\n  "));
 if (flagged.length) console.warn("Flagged archived: " + flagged.join(", "));
 if (failures.length)
   console.warn("Skipped (kept previous values):\n  " + failures.join("\n  "));
