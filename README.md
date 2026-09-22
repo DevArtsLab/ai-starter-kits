@@ -8,6 +8,8 @@ difficulty, maturity, documentation quality, licence and total cost of ownership
 Filter and sort the catalog, build a side-by-side comparison of up to four kits, keep a
 persistent shortlist, and submit kits you think are missing.
 
+![StarterKit Radar dashboard: hero stats and the filterable kit catalog](.github/assets/screenshot.png)
+
 ---
 
 ## 1. Currently completed features
