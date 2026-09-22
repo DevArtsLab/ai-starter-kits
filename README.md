@@ -85,7 +85,8 @@ a persistent shortlist.
 - Responsive at desktop, tablet, phone and small-phone widths (1440 / 1180 / 900 / 640 / 380 px).
 - Toast notifications for every storage action, plus a scroll-spy nav.
 - **Resilience**: all storage reads/writes are wrapped, and if the Table API is unreachable the
-  app falls back to `localStorage` (then in-memory) for the session and tells the user.
+  app falls back to `localStorage` (then in-memory) for the session — reads fail silently and a
+  one-time toast appears only when the user first saves or removes a shortlist entry.
 
 ---
 

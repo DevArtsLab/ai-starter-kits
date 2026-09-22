@@ -141,21 +141,26 @@
   };
 
   /* Start optimistic: the preview/hosted runtime serves tables/* on this origin.
-     If the first request fails we degrade to localStorage for the session. */
+     If the first request fails we degrade to localStorage for the session.
+     Reads fail silently; the one-time toast only fires on the first write. */
   let apiOk = true;
   let apiWarned = false;
+  let apiFailReason = "";
 
   function degradeToLocal(reason) {
     apiOk = false;
-    if (!apiWarned) {
-      apiWarned = true;
-      toast(
-        "Storage API unavailable — changes are kept in this browser only (" +
-          reason +
-          ")",
-        "warn",
-      );
-    }
+    apiFailReason = reason;
+  }
+
+  function warnStorageOnce() {
+    if (apiWarned) return;
+    apiWarned = true;
+    toast(
+      "Storage API unavailable — changes are kept in this browser only" +
+        (apiFailReason ? " (" + apiFailReason + ")" : "") +
+        ".",
+      "warn",
+    );
   }
 
   async function listRows(table) {
@@ -190,6 +195,7 @@
         degradeToLocal(err.message || "request failed");
       }
     }
+    warnStorageOnce();
     const record = Object.assign({ id: localId(), created_at: Date.now() }, row);
     const rows = Local.read(table);
     rows.push(record);
@@ -209,6 +215,7 @@
         degradeToLocal(err.message || "request failed");
       }
     }
+    warnStorageOnce();
     const rows = Local.read(table).filter((r) => r.id !== id);
     Local.write(table, rows);
     return true;
