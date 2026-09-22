@@ -10,14 +10,14 @@
         activityScore  <- recency of pushed_at, bucketed 0-10
         popularity     <- log10(stars) normalised so the top repo scores 100
       Repos that return 404/410 are REMOVED from the catalog (logged below).
-      Archived repos stay but get needsReview:true and activityScore <= 2.
+      Archived repos stay but their activityScore is capped at 2.
    3. Enriches minimal entries: a kit listed as { "name": "...", "repo": "..." }
-      gets org, description, docs, languages, licence, category and provisional
-      ratings filled from the API, flagged needsReview:true for a human pass.
+      gets org, description, docs, languages, licence, category and ratings
+      filled in automatically (best-effort guesses from the API data).
    4. Discovery: searches GitHub for new starter-kit repos and appends unseen
       results to data/candidates.json. Candidates are NOT auto-promoted —
-      ratings are editorial, so promotion is a human review step (copy a slug
-      into kits.json and this script fills in the rest).
+      promotion is a manual step (copy a slug into kits.json and this script
+      fills in the rest).
    5. Writes data/kits.json, js/kits-data.js and data/candidates.json.
 
    Usage:
@@ -233,7 +233,6 @@ for (const { kit, status, repo, error } of fetched) {
   kit.activityScore = activityFromPush(repo.pushed_at);
   if (repo.archived) {
     kit.activityScore = Math.min(kit.activityScore, 2);
-    kit.needsReview = true;
     flagged.push(`${kit.id} (archived)`);
   }
   kept.push(Object.assign(kit, { _repo: repo }));
@@ -292,10 +291,7 @@ for (const kit of kept) {
     defaulted = true;
   }
 
-  if (defaulted && !kit.needsReview) {
-    kit.needsReview = true;
-    enriched.push(kit.id);
-  }
+  if (defaulted) enriched.push(kit.id);
 }
 
 /* ------------------------------------------------------------ *
@@ -305,6 +301,7 @@ for (const kit of kept) {
 const maxStars = Math.max(...kept.map((k) => k.stars || 0), 1);
 for (const kit of kept) {
   delete kit.score; // runtime-computed by js/kits-meta.js — never stored
+  delete kit.needsReview; // enrichment is best-effort, no manual review flag
   kit.popularity = Math.max(
     1,
     Math.min(
@@ -398,7 +395,7 @@ candidatesFile = {
   note:
     "Auto-discovered via GitHub search — NOT shown on the site. To promote one, " +
     'add { "name": ..., "repo": <url> } to data/kits.json; update-kits.mjs ' +
-    "fills in the remaining fields and flags it needsReview.",
+    "fills in the remaining fields automatically.",
   candidates: trimmed,
 };
 
@@ -438,7 +435,7 @@ console.log(
     `(${trimmed.length} total in data/candidates.json).`,
 );
 if (enriched.length)
-  console.log("Enriched (needsReview): " + enriched.join(", "));
+  console.log("Enriched (auto-filled fields): " + enriched.join(", "));
 if (removed.length)
   console.warn("REMOVED (repo gone):\n  " + removed.join("\n  "));
 if (flagged.length) console.warn("Flagged archived: " + flagged.join(", "));

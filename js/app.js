@@ -50,7 +50,9 @@
   function formatStars(stars) {
     if (!stars) return "—";
     if (stars >= 1000)
-      return (Math.round(stars / 100) / 10).toFixed(1).replace(/\.0$/, "") + "k";
+      return (
+        (Math.round(stars / 100) / 10).toFixed(1).replace(/\.0$/, "") + "k"
+      );
     return String(stars);
   }
 
@@ -196,7 +198,10 @@
       }
     }
     warnStorageOnce();
-    const record = Object.assign({ id: localId(), created_at: Date.now() }, row);
+    const record = Object.assign(
+      { id: localId(), created_at: Date.now() },
+      row,
+    );
     const rows = Local.read(table);
     rows.push(record);
     Local.write(table, rows);
@@ -206,9 +211,12 @@
   async function deleteRow(table, id) {
     if (apiOk && String(id).indexOf("local-") !== 0) {
       try {
-        const res = await fetch("tables/" + table + "/" + encodeURIComponent(id), {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          "tables/" + table + "/" + encodeURIComponent(id),
+          {
+            method: "DELETE",
+          },
+        );
         if (res.ok || res.status === 204) return true;
         throw new Error("HTTP " + res.status);
       } catch (err) {
@@ -268,7 +276,8 @@
       if (haystack.indexOf(q) === -1) return false;
     }
     if (state.category && kit.category !== state.category) return false;
-    if (state.language && kit.languages.indexOf(state.language) === -1) return false;
+    if (state.language && kit.languages.indexOf(state.language) === -1)
+      return false;
     if (state.license && kit.license !== state.license) return false;
     if (kit.difficulty > state.maxDifficulty) return false;
     if (kit.timeToHelloWorld > state.maxTTW) return false;
@@ -317,7 +326,11 @@
       '  <div class="kit-card-top">',
       "    <div>",
       '      <h3 class="kit-title">' + esc(kit.name) + "</h3>",
-      '      <p class="kit-org">' + esc(kit.org) + " · " + esc(kit.license) + "</p>",
+      '      <p class="kit-org">' +
+        esc(kit.org) +
+        " · " +
+        esc(kit.license) +
+        "</p>",
       "    </div>",
       '    <div class="score-ring ' +
         scoreClass(kit.score) +
@@ -344,9 +357,7 @@
       kit.hasEvals
         ? '<span class="badge"><i class="fas fa-vial"></i> Evals</span>'
         : "",
-      kit.needsReview
-        ? '<span class="badge badge-warn" title="Auto-enriched entry — editorial ratings pending"><i class="fas fa-magnifying-glass"></i> Review</span>'
-        : "",
+
       "  </div>",
       '  <div class="kit-metrics">',
       '    <div class="metric"><span class="metric-label">Hello world</span><span class="metric-value">' +
@@ -361,7 +372,9 @@
         "</span></div>",
       "  </div>",
       kit.models.length
-        ? '  <p class="kit-models"><strong>Models:</strong> ' + esc(models) + "</p>"
+        ? '  <p class="kit-models"><strong>Models:</strong> ' +
+          esc(models) +
+          "</p>"
         : "",
       '  <div class="kit-actions">',
       repo
@@ -447,14 +460,20 @@
 
     setText(
       $("#resultCount"),
-      rows.length + (rows.length === 1 ? " kit" : " kits") + " shown of " + KITS.length,
+      rows.length +
+        (rows.length === 1 ? " kit" : " kits") +
+        " shown of " +
+        KITS.length,
     );
   }
 
   function renderStats() {
     setText($("#statTotal"), KITS.length);
     setText($("#statCategories"), CATEGORIES.length);
-    setText($("#statFast"), KITS.filter((k) => k.timeToHelloWorld <= 15).length);
+    setText(
+      $("#statFast"),
+      KITS.filter((k) => k.timeToHelloWorld <= 15).length,
+    );
     setText($("#statLocal"), KITS.filter((k) => k.localFirst).length);
     setText($("#statBeginner"), KITS.filter((k) => k.difficulty <= 2).length);
     const avg = KITS.reduce((sum, k) => sum + k.score, 0) / KITS.length;
@@ -532,7 +551,11 @@
     const rows = [
       compareRow("Category", (k) => k.category),
       compareRow("Readiness score", (k) => k.score, "max"),
-      compareRow("Hello world", (k) => formatDuration(k.timeToHelloWorld), "min"),
+      compareRow(
+        "Hello world",
+        (k) => formatDuration(k.timeToHelloWorld),
+        "min",
+      ),
       compareRow("Difficulty", (k) => difficultyLabel(k.difficulty), "min"),
       compareRow("Maturity", (k) => k.maturity + "/10", "max"),
       compareRow("Ecosystem", (k) => k.ecosystem + "/10", "max"),
@@ -553,7 +576,11 @@
     ].join("");
 
     body.innerHTML =
-      '<table class="compare-table">' + head + "<tbody>" + rows + "</tbody></table>";
+      '<table class="compare-table">' +
+      head +
+      "<tbody>" +
+      rows +
+      "</tbody></table>";
   }
 
   function toggleCompare(kitId) {
@@ -766,7 +793,13 @@
       caption: "Setup effort vs. readiness — bubble size is popularity",
       build(palette, kits) {
         const option = baseOption(palette);
-        option.grid = { left: 6, right: 26, top: 20, bottom: 6, containLabel: true };
+        option.grid = {
+          left: 6,
+          right: 26,
+          top: 20,
+          bottom: 6,
+          containLabel: true,
+        };
         option.xAxis = {
           type: "value",
           name: "Minutes to hello world",
@@ -959,8 +992,12 @@
     body.innerHTML = rows
       .map((row, index) => {
         const kit = byId[row.kit_id];
-        const name = kit ? kit.name : row.kit_name || row.kit_id || "Unknown kit";
-        const org = kit ? kit.org + " · " + kit.category : "Not in the current catalog";
+        const name = kit
+          ? kit.name
+          : row.kit_name || row.kit_id || "Unknown kit";
+        const org = kit
+          ? kit.org + " · " + kit.category
+          : "Not in the current catalog";
         const repo = kit ? safeUrl(kit.repo) : "";
         return [
           '<div class="shortlist-row" data-row="' + esc(row.id) + '">',
@@ -970,7 +1007,9 @@
             "</strong><small>" +
             esc(org) +
             "</small></div>",
-          '  <p class="shortlist-note">' + esc(row.note || "No note yet.") + "</p>",
+          '  <p class="shortlist-note">' +
+            esc(row.note || "No note yet.") +
+            "</p>",
           '  <span class="shortlist-meta">' +
             esc(formatDate(row.created_at || row.added_at) || "—") +
             "</span>",
@@ -1048,8 +1087,10 @@
     if (button) {
       button.setAttribute("aria-pressed", String(theme === "light"));
       const icon = $("i", button);
-      if (icon) icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
-      button.title = theme === "light" ? "Switch to dark mode" : "Switch to light mode";
+      if (icon)
+        icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
+      button.title =
+        theme === "light" ? "Switch to dark mode" : "Switch to light mode";
     }
     try {
       window.localStorage.setItem("skr:theme", theme);
@@ -1077,7 +1118,9 @@
   }
 
   function initNavHighlight() {
-    const links = Array.prototype.slice.call(document.querySelectorAll(".topnav-link"));
+    const links = Array.prototype.slice.call(
+      document.querySelectorAll(".topnav-link"),
+    );
     const sections = links
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
@@ -1158,7 +1201,9 @@
       );
     });
 
-    const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const blob = new Blob([lines.join("\n")], {
+      type: "text/csv;charset=utf-8;",
+    });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
@@ -1215,9 +1260,11 @@
     ].forEach((sel) => {
       $(sel).addEventListener("change", onFilterChange);
     });
-    ["#filterLocal", "#filterKeyless", "#filterUI", "#filterEvals"].forEach((sel) => {
-      $(sel).addEventListener("change", onFilterChange);
-    });
+    ["#filterLocal", "#filterKeyless", "#filterUI", "#filterEvals"].forEach(
+      (sel) => {
+        $(sel).addEventListener("change", onFilterChange);
+      },
+    );
 
     $("#resetFilters").addEventListener("click", () => {
       $("#searchInput").value = "";
@@ -1227,9 +1274,11 @@
       $("#maxDifficulty").value = "5";
       $("#maxTTW").value = "999";
       $("#sortSelect").value = "score";
-      ["#filterLocal", "#filterKeyless", "#filterUI", "#filterEvals"].forEach((sel) => {
-        $(sel).checked = false;
-      });
+      ["#filterLocal", "#filterKeyless", "#filterUI", "#filterEvals"].forEach(
+        (sel) => {
+          $(sel).checked = false;
+        },
+      );
       onFilterChange();
       toast("Filters reset.", "ok");
     });
@@ -1340,7 +1389,10 @@
     if (typeof echarts !== "undefined") {
       renderCharts();
     } else {
-      toast("Chart library failed to load — tables and filters still work.", "warn");
+      toast(
+        "Chart library failed to load — tables and filters still work.",
+        "warn",
+      );
     }
 
     loadShortlist({});

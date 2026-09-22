@@ -61,7 +61,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 92,
-    stars: 146835,
+    stars: 146838,
     pricing: "Free / OSS",
     bestFor:
       "Teams that need every integration and a huge tutorial surface — accept the abstraction tax.",
@@ -117,7 +117,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 87,
-    stars: 76116,
+    stars: 76117,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Copy-paste recipes for structured outputs, embeddings and tool calling on the OpenAI API.",
@@ -209,8 +209,8 @@ const KITS = [
     docs: "https://www.gradio.app/guides/quickstart",
   },
   {
-    id: "ollama-playground",
-    name: "Ollama Local Playground",
+    id: "ollama",
+    name: "Ollama",
     org: "Ollama",
     category: "Local / Self-Hosted",
     languages: ["Go", "Shell", "Any (HTTP API)"],
@@ -229,7 +229,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 94,
-    stars: 181429,
+    stars: 181432,
     pricing: "Free / OSS (your hardware)",
     bestFor:
       "Running models entirely on your laptop with zero API keys — the best default for privacy-sensitive work.",
@@ -257,7 +257,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 91,
-    stars: 129132,
+    stars: 129136,
     pricing: "Free / OSS",
     bestFor: "Quantised CPU/GPU inference with no Python in the critical path.",
     repo: "https://github.com/ggml-org/llama.cpp",
@@ -284,7 +284,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 89,
-    stars: 92393,
+    stars: 92395,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Throughput-heavy self-hosted inference when one request at a time is no longer enough.",
@@ -320,7 +320,7 @@ const KITS = [
     docs: "https://docs.mozilla.ai/llamafile/",
   },
   {
-    id: "llamafile",
+    id: "web-llm",
     name: "WebGPU Browser LLM Starter",
     org: "MLC LLM",
     category: "Local / Self-Hosted",
@@ -348,10 +348,10 @@ const KITS = [
     docs: "https://webllm.mlc.ai/docs/",
   },
   {
-    id: "nextjs-rag-template",
-    name: "Next.js RAG Chat Template",
-    org: "Vercel Templates",
-    category: "RAG / Retrieval",
+    id: "vercel-ai-chatbot",
+    name: "Vercel AI Chatbot",
+    org: "Vercel",
+    category: "Full-Stack Web App",
     languages: ["TypeScript", "Next.js"],
     models: ["OpenAI", "Anthropic", "Google Gemini"],
     license: "Apache-2.0",
@@ -371,9 +371,9 @@ const KITS = [
     stars: 20963,
     pricing: "Free / OSS (you pay hosting + model usage)",
     bestFor:
-      "A deployable chat-with-your-docs app with streaming, citations and a real UI already wired up.",
+      "A production-grade Next.js chat app with auth, chat history persistence, artifacts and streaming already wired up.",
     repo: "https://github.com/vercel/ai-chatbot",
-    docs: "https://sdk.vercel.ai/docs/guides/rag-chatbot",
+    docs: "https://chat-sdk.dev/docs",
   },
   {
     id: "ragflow-platform",
@@ -396,7 +396,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 89,
-    stars: 91124,
+    stars: 91126,
     pricing: "Free / OSS (self-host)",
     bestFor:
       "Deep document parsing — tables, scanned PDFs — where naive chunking keeps failing you.",
@@ -480,7 +480,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 85,
-    stars: 58886,
+    stars: 58887,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Modelling a business workflow as a team of role-playing agents instead of one giant prompt.",
@@ -508,7 +508,7 @@ const KITS = [
     localFirst: false,
     activityScore: 6,
     popularity: 86,
-    stars: 61103,
+    stars: 61105,
     pricing: "Free / OSS",
     bestFor:
       "Research-style multi-agent conversations with a visual builder and event tracing built in.",
@@ -536,7 +536,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 83,
-    stars: 42105,
+    stars: 42107,
     pricing: "Free / OSS (paid platform tier)",
     bestFor:
       "Long-running, stateful agents with retries, human-in-the-loop and checkpointed memory.",
@@ -676,7 +676,7 @@ const KITS = [
     localFirst: false,
     activityScore: 10,
     popularity: 90,
-    stars: 110553,
+    stars: 110556,
     pricing: "Free tier + usage-based",
     bestFor:
       "One Postgres for auth, rows and embeddings — the shortest stack that still looks like a real product.",
@@ -732,7 +732,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 93,
-    stars: 166497,
+    stars: 166499,
     pricing: "Free / OSS",
     bestFor:
       "The default on-ramp for running, fine-tuning or quantising any open model yourself.",
@@ -788,7 +788,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 87,
-    stars: 76549,
+    stars: 76551,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Fine-tuning on a free Colab GPU when memory, not patience, is the constraint.",
@@ -844,7 +844,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 81,
-    stars: 34917,
+    stars: 34918,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Seeing what your prompts actually did in production — traces, costs and scores in one place.",
@@ -984,7 +984,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 86,
-    stars: 61882,
+    stars: 61884,
     pricing: "Free / OSS (AGPL or commercial licence)",
     bestFor:
       "Real-time object detection where you need a working model today and training tomorrow.",
@@ -1012,7 +1012,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 92,
-    stars: 134370,
+    stars: 134371,
     pricing: "Free / OSS",
     bestFor:
       "Node-graph image generation pipelines you can actually version, share and extend with custom nodes.",
@@ -1135,7 +1135,7 @@ const KITS = [
     id: "litellm-proxy",
     name: "LiteLLM Proxy Starter",
     org: "BerriAI",
-    category: "Guardrails / Safety",
+    category: "Model Serving / Inference",
     languages: ["Python"],
     models: ["100+ providers behind one API"],
     license: "MIT",
@@ -1152,7 +1152,7 @@ const KITS = [
     localFirst: true,
     activityScore: 10,
     popularity: 85,
-    stars: 59368,
+    stars: 59372,
     pricing: "Free / OSS",
     bestFor:
       "One OpenAI-shaped endpoint in front of every provider, with budgets, keys and fallbacks.",
@@ -1236,7 +1236,7 @@ const KITS = [
     localFirst: true,
     activityScore: 9,
     popularity: 89,
-    stars: 90541,
+    stars: 90542,
     pricing: "Free / OSS",
     bestFor:
       "Exposing your own tools and data to any MCP-capable assistant once, instead of per-client integrations.",
@@ -1275,7 +1275,7 @@ const KITS = [
     id: "semantic-kernel-starter",
     name: "Semantic Kernel Starter",
     org: "Microsoft",
-    category: "Enterprise / Cloud",
+    category: "Agent Framework",
     languages: ["C#", "Python", "Java"],
     models: ["OpenAI", "Azure OpenAI", "Google Gemini", "Hugging Face"],
     license: "MIT",
@@ -1328,9 +1328,9 @@ const KITS = [
     docs: "https://dspy.ai/",
   },
   {
-    id: "smith-agentic-bench",
-    name: "Agentic Benchmark Harness",
-    org: "Community",
+    id: "openai-evals",
+    name: "OpenAI Evals",
+    org: "OpenAI",
     category: "Evaluation / Observability",
     languages: ["Python", "YAML"],
     models: ["OpenAI", "Anthropic", "Ollama"],
@@ -1351,7 +1351,7 @@ const KITS = [
     stars: 19489,
     pricing: "Free / OSS",
     bestFor:
-      "Scoring agent runs on task success and step count when you have no formal eval set yet.",
+      "OpenAI's framework for evaluating LLMs and LLM systems, plus an open-source registry of benchmarks.",
     repo: "https://github.com/openai/evals",
     docs: "https://github.com/openai/evals/blob/main/README.md",
   },
@@ -1381,13 +1381,12 @@ const KITS = [
     requiresKey: false,
     localFirst: true,
     languages: ["Docker Compose"],
-    needsReview: true,
     popularity: 75,
   },
   {
     name: "OpenClaw",
     repo: "https://github.com/openclaw/openclaw",
-    stars: 390232,
+    stars: 390230,
     activityScore: 10,
     id: "openclaw",
     org: "openclaw",
@@ -1410,7 +1409,6 @@ const KITS = [
     requiresKey: true,
     localFirst: true,
     languages: ["TypeScript", "Swift", "Kotlin", "JavaScript"],
-    needsReview: true,
     popularity: 100,
   },
   {
@@ -1439,7 +1437,6 @@ const KITS = [
     requiresKey: false,
     localFirst: true,
     languages: ["TypeScript", "Vue", "Python", "CSS"],
-    needsReview: true,
     popularity: 54,
   },
   {
@@ -1468,7 +1465,6 @@ const KITS = [
     requiresKey: true,
     localFirst: true,
     languages: ["n8n workflows (JSON)"],
-    needsReview: true,
     popularity: 79,
   },
 ];

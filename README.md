@@ -20,7 +20,7 @@ a persistent shortlist.
   kits ready in ≤ 15 minutes, kits that run fully local, beginner-friendly kits, and the
   average readiness score.
 
-### Catalog (52 kits, 15 categories)
+### Catalog
 
 - **Search** across kit name, maintainer, category, "best for" text, pricing, licence,
   languages and supported model providers.
@@ -63,15 +63,14 @@ a persistent shortlist.
   **Run workflow**) refreshes `stars`, `license`, `activityScore` and `popularity` from the
   GitHub API, commits the result, and GitHub Pages redeploys.
 - **Dead kits are pruned**: a repo that returns 404/410 is removed from the catalog;
-  archived repos stay but are flagged `needsReview` and their activity score drops.
+  archived repos stay but their activity score drops.
 - **Adding a kit is a two-line edit**: put `{ "name": "…", "repo": "https://github.com/…" }`
   in `data/kits.json` and the script fills org, description, docs, languages, licence,
-  category and provisional ratings, flagging the entry `needsReview` until a human checks
-  the editorial fields.
+  category and ratings automatically from the repo's own data.
 - **Discovery**: the same script searches GitHub for new starter-kit repos and appends
-  unseen ones to `data/candidates.json` — a review queue, not auto-published, since ratings
-  are judgement calls. Promote a candidate by copying it into `data/kits.json`; block one
-  forever by adding its slug to `data/ignored.json`.
+  unseen ones to `data/candidates.json` — a holding list, not auto-published. Promote a
+  candidate by copying it into `data/kits.json`; block one forever by adding its slug to
+  `data/ignored.json`.
 - Editorial fields (difficulty, hello-world time, maturity, `bestFor`, …) are never
   overwritten once set.
 - Refresh locally with `node .github/scripts/update-kits.mjs` (optionally with
@@ -131,7 +130,7 @@ triggered from the header for the current result set.
 
 ### Seed catalog — `data/kits.json` → `js/kits-data.js`
 
-The catalog lives in `data/kits.json` (52 objects); `js/kits-data.js` wraps it as a `KITS`
+The catalog lives in `data/kits.json` (one object per kit); `js/kits-data.js` wraps it as a `KITS`
 array so no network call is needed to render. `js/kits-data.js` is generated — run
 `node .github/scripts/update-kits.mjs` after editing the JSON (the weekly workflow does
 this automatically, including refreshing live GitHub metrics).
@@ -189,7 +188,7 @@ whole page needs to be restricted.
 ## 4. Features not yet implemented
 
 - **Shareable filter state** — filters live in memory only, not in the URL query string.
-- **Server-side search / pagination** — all 52 kits are filtered client-side; the API's
+- **Server-side search / pagination** — the whole catalog is filtered client-side; the API's
   `search`, `sort`, `page` and `limit` parameters are unused.
 - **Admin curation** — no way to edit catalog entries or ratings from the UI; editorial
   fields are updated by editing `data/kits.json` and pushing.
@@ -238,8 +237,8 @@ whole page needs to be restricted.
 index.html                      # dashboard markup (all sections)
 css/style.css                   # design tokens + component styles
 css/responsive.css              # media queries (1180 / 900 / 640 / 380 px)
-data/kits.json                  # 52-kit catalog — source of truth
-data/candidates.json            # auto-discovered kit suggestions (review queue)
+data/kits.json                  # kit catalog — source of truth
+data/candidates.json            # auto-discovered kit suggestions (holding list)
 data/ignored.json               # repos permanently excluded from discovery
 js/kits-data.js                 # generated KITS array (from data/kits.json)
 js/kits-meta.js                 # score helpers + derived filter lists
