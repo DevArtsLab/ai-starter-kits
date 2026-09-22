@@ -1,0 +1,187 @@
+/* ============================================================================
+   StarterKit Radar — responsive rules
+   Breakpoints: 1180px (grids collapse), 900px (toolbar), 640px (phone)
+   ========================================================================== */
+
+/* ---- wide-ish: chart pair and submit layout stack earlier than the panels */
+@media (max-width: 1180px) {
+  .chart-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .submit-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .page-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .submission-list {
+    max-height: none;
+  }
+}
+
+/* ---- tablet: toolbar becomes a 2-up grid, nav scrolls */
+@media (max-width: 900px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    gap: 12px;
+  }
+  .brand {
+    order: 1;
+  }
+  .topbar-actions {
+    order: 2;
+    margin-left: auto;
+  }
+  .topnav {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .topnav-list {
+    padding-bottom: 2px;
+  }
+
+  .page {
+    padding: 20px 16px 48px;
+    gap: 18px;
+  }
+  .page-foot {
+    padding: 0 16px 32px;
+  }
+
+  .toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .field-search {
+    grid-column: 1 / -1;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .kit-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- phone */
+@media (max-width: 640px) {
+  body {
+    font-size: 14.5px;
+  }
+
+  .topbar {
+    position: static;
+  }
+  html {
+    scroll-padding-top: 12px;
+  }
+
+  .btn-label {
+    display: none;
+  }
+  .btn {
+    padding: 8px 10px;
+  }
+  .topbar-actions .btn {
+    padding: 8px 11px;
+  }
+
+  .page {
+    padding: 16px 13px 40px;
+  }
+  .page-foot {
+    padding: 0 13px 26px;
+  }
+
+  .panel {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  .panel-head {
+    gap: 12px;
+  }
+  .view-switch,
+  .insight-switch {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .view-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 13px;
+  }
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .kit-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 11px;
+  }
+  .kit-actions .btn {
+    flex: 1 1 45%;
+  }
+
+  .result-bar {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .shortlist-row {
+    gap: 10px;
+  }
+  .shortlist-info {
+    flex-basis: 160px;
+  }
+  .shortlist-note {
+    flex-basis: 100%;
+  }
+  .shortlist-meta {
+    order: 3;
+  }
+
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chart-box {
+    height: 270px;
+  }
+
+  .toast-stack {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+  .compare-table,
+  .catalog-table {
+    min-width: 640px;
+  }
+}
+
+/* ---- very small phones */
+@media (max-width: 380px) {
+  .stat-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .kit-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .brand-text small {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "name": "shortlist",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text",
+        "description": "Record id"
+      },
+      {
+        "name": "kit_id",
+        "type": "text",
+        "description": "Catalog kit slug"
+      },
+      {
+        "name": "kit_name",
+        "type": "text",
+        "description": "Kit display name"
+      },
+      {
+        "name": "note",
+        "type": "text",
+        "description": "Why this kit was shortlisted"
+      },
+      {
+        "name": "added_at",
+        "type": "datetime",
+        "description": "When the kit was shortlisted"
+      }
+    ]
+  },
+  {
+    "name": "kit_submissions",
+    "fields": [
+      {
+        "name": "id",
+        "type": "text",
+        "description": "Record id"
+      },
+      {
+        "name": "kit_name",
+        "type": "text",
+        "description": "Submitted kit name"
+      },
+      {
+        "name": "org",
+        "type": "text",
+        "description": "Maintaining org or author"
+      },
+      {
+        "name": "category",
+        "type": "text",
+        "description": "Suggested category"
+      },
+      {
+        "name": "repo_url",
+        "type": "text",
+        "description": "Repository or product URL"
+      },
+      {
+        "name": "description",
+        "type": "rich_text",
+        "description": "What it does"
+      },
+      {
+        "name": "submitted_by",
+        "type": "text",
+        "description": "Submitter handle"
+      },
+      {
+        "name": "created",
+        "type": "datetime",
+        "description": "Submission timestamp"
+      }
+    ]
+  }
+]
