@@ -1,15 +1,14 @@
 /* ============================================================================
-   AI Starter Kit Catalog — seed dataset
+   AI Starter Kit Catalog — GENERATED FILE, do not edit by hand.
    ----------------------------------------------------------------------------
-   A curated, editorially-rated directory of developer-facing AI starter kits,
-   templates and reference applications.
+   Source of truth: data/kits.json (edit that file instead).
+   Regenerate:   node .github/scripts/update-kits.mjs
+   Auto-refresh: .github/workflows/refresh-kits.yml runs weekly and commits.
 
-   IMPORTANT: the `links` below point at real, well-known open-source projects.
    The numeric ratings (difficulty, timeToHelloWorld, maturity, ecosystem,
-   costFriendliness, docsQuality, activityScore, popularity) and `bestFor` text
-   are editorial estimates authored for this dashboard's demo dataset — they are
-   comparative judgement calls, not published metrics. Swap in your own numbers
-   in the Admin panel, or replace this file with a fetch() to your own API.
+   costFriendliness, docsQuality) and bestFor text are editorial estimates.
+   stars, license, activityScore and popularity are refreshed from the GitHub
+   API — see .github/scripts/update-kits.mjs for the exact mapping.
    ========================================================================== */
 
 const KITS = [
@@ -32,14 +31,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 96,
-    stars: 21000,
+    activityScore: 10,
+    popularity: 84,
+    stars: 26882,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Shipping a production chat or generative UI feature into an existing Next.js app tonight.",
     repo: "https://github.com/vercel/ai",
     docs: "https://sdk.vercel.ai/docs",
+    score: 9,
   },
   {
     id: "langchain-quickstart",
@@ -60,14 +60,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 94,
-    stars: 96000,
+    activityScore: 10,
+    popularity: 98,
+    stars: 146825,
     pricing: "Free / OSS",
     bestFor:
       "Teams that need every integration and a huge tutorial surface — accept the abstraction tax.",
     repo: "https://github.com/langchain-ai/langchain",
     docs: "https://python.langchain.com/docs/tutorials/",
+    score: 9,
   },
   {
     id: "llamaindex-starter",
@@ -88,14 +89,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 88,
-    stars: 38000,
+    activityScore: 10,
+    popularity: 90,
+    stars: 52270,
     pricing: "Free / OSS",
     bestFor:
       "Getting from a folder of PDFs to answerable, cited retrieval in an afternoon.",
     repo: "https://github.com/run-llama/llama_index",
     docs: "https://docs.llamaindex.ai/",
+    score: 9,
   },
   {
     id: "openai-cookbook",
@@ -116,14 +118,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 90,
-    stars: 62000,
+    activityScore: 10,
+    popularity: 93,
+    stars: 76112,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Copy-paste recipes for structured outputs, embeddings and tool calling on the OpenAI API.",
     repo: "https://github.com/openai/openai-cookbook",
     docs: "https://cookbook.openai.com/",
+    score: 8.4,
   },
   {
     id: "anthropic-cookbook",
@@ -144,14 +147,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 82,
-    stars: 13000,
+    activityScore: 10,
+    popularity: 90,
+    stars: 52876,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Learning prompt patterns, tool use and vision workflows for Claude models.",
     repo: "https://github.com/anthropics/anthropic-cookbook",
     docs: "https://docs.anthropic.com/",
+    score: 7.8,
   },
   {
     id: "streamlit-llm-app",
@@ -172,14 +176,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: true,
-    activityScore: 7,
-    popularity: 85,
-    stars: 35000,
+    activityScore: 10,
+    popularity: 89,
+    stars: 45812,
     pricing: "Free / OSS",
     bestFor:
       "The fastest path from a Python script to a shareable internal AI demo — no frontend code at all.",
     repo: "https://github.com/streamlit/streamlit",
     docs: "https://docs.streamlit.io/",
+    score: 7.9,
   },
   {
     id: "gradio-interface",
@@ -200,14 +205,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 89,
-    stars: 37000,
+    activityScore: 10,
+    popularity: 88,
+    stars: 43594,
     pricing: "Free / OSS",
     bestFor:
       "Standing up a model demo UI in five lines and sharing it with a public link.",
     repo: "https://github.com/gradio-app/gradio",
     docs: "https://www.gradio.app/guides/quickstart",
+    score: 8.7,
   },
   {
     id: "ollama-playground",
@@ -228,14 +234,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 91,
-    stars: 100000,
+    activityScore: 10,
+    popularity: 100,
+    stars: 181416,
     pricing: "Free / OSS (your hardware)",
     bestFor:
       "Running models entirely on your laptop with zero API keys — the best default for privacy-sensitive work.",
     repo: "https://github.com/ollama/ollama",
     docs: "https://docs.ollama.com/",
+    score: 8.6,
   },
   {
     id: "llama-cpp-quickstart",
@@ -257,12 +264,13 @@ const KITS = [
     requiresKey: false,
     localFirst: true,
     activityScore: 10,
-    popularity: 87,
-    stars: 70000,
+    popularity: 97,
+    stars: 129111,
     pricing: "Free / OSS",
     bestFor: "Quantised CPU/GPU inference with no Python in the critical path.",
     repo: "https://github.com/ggml-org/llama.cpp",
     docs: "https://github.com/ggml-org/llama.cpp/tree/master/examples",
+    score: 8.9,
   },
   {
     id: "vllm-serving",
@@ -283,14 +291,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 78,
-    stars: 46000,
+    activityScore: 10,
+    popularity: 94,
+    stars: 92372,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Throughput-heavy self-hosted inference when one request at a time is no longer enough.",
     repo: "https://github.com/vllm-project/vllm",
     docs: "https://docs.vllm.ai/",
+    score: 8.1,
   },
   {
     id: "llamafile-bundle",
@@ -311,14 +320,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 7,
-    popularity: 62,
-    stars: 22000,
+    activityScore: 10,
+    popularity: 84,
+    stars: 26021,
     pricing: "Free / OSS",
     bestFor:
       "Distributing one runnable executable that serves a model on any machine — no installs, no deps.",
     repo: "https://github.com/mozilla-ai/llamafile",
     docs: "https://docs.mozilla.ai/llamafile/",
+    score: 6.9,
   },
   {
     id: "llamafile",
@@ -339,14 +349,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 68,
-    stars: 20000,
+    activityScore: 10,
+    popularity: 81,
+    stars: 19160,
     pricing: "Free / OSS",
     bestFor:
       "Running inference in the browser via WebGPU/WebLLM — zero server, zero per-token cost.",
     repo: "https://github.com/mlc-ai/web-llm",
     docs: "https://webllm.mlc.ai/docs/",
+    score: 6.8,
   },
   {
     id: "nextjs-rag-template",
@@ -368,13 +379,14 @@ const KITS = [
     requiresKey: true,
     localFirst: false,
     activityScore: 8,
-    popularity: 84,
-    stars: 9000,
+    popularity: 82,
+    stars: 20963,
     pricing: "Free / OSS (you pay hosting + model usage)",
     bestFor:
       "A deployable chat-with-your-docs app with streaming, citations and a real UI already wired up.",
     repo: "https://github.com/vercel/ai-chatbot",
     docs: "https://sdk.vercel.ai/docs/guides/rag-chatbot",
+    score: 8.1,
   },
   {
     id: "ragflow-platform",
@@ -395,14 +407,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 74,
-    stars: 42000,
+    activityScore: 10,
+    popularity: 94,
+    stars: 91117,
     pricing: "Free / OSS (self-host)",
     bestFor:
       "Deep document parsing — tables, scanned PDFs — where naive chunking keeps failing you.",
     repo: "https://github.com/infiniflow/ragflow",
     docs: "https://ragflow.io/docs/dev/",
+    score: 7.3,
   },
   {
     id: "qdrant-rag-starter",
@@ -423,14 +436,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 73,
-    stars: 23000,
+    activityScore: 10,
+    popularity: 86,
+    stars: 34738,
     pricing: "Free / OSS (or managed cloud)",
     bestFor:
       "Adding filtered vector retrieval to an existing app without committing to a heavyweight framework.",
     repo: "https://github.com/qdrant/qdrant",
     docs: "https://qdrant.tech/documentation/quickstart/",
+    score: 8,
   },
   {
     id: "chroma-starter",
@@ -451,14 +465,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 79,
-    stars: 19000,
+    activityScore: 10,
+    popularity: 85,
+    stars: 29350,
     pricing: "Free / OSS",
     bestFor:
       "Prototyping a retrieval idea in-memory before you pick a real vector database.",
     repo: "https://github.com/chroma-core/chroma",
     docs: "https://docs.trychroma.com/",
+    score: 8.1,
   },
   {
     id: "crewai-starter",
@@ -479,14 +494,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 83,
-    stars: 30000,
+    activityScore: 10,
+    popularity: 91,
+    stars: 58879,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Modelling a business workflow as a team of role-playing agents instead of one giant prompt.",
     repo: "https://github.com/crewAIInc/crewAI",
     docs: "https://docs.crewai.com/",
+    score: 8,
   },
   {
     id: "autogen-studio",
@@ -495,7 +511,7 @@ const KITS = [
     category: "Agent Framework",
     languages: ["Python", "TypeScript"],
     models: ["OpenAI", "Anthropic", "Ollama", "Azure OpenAI"],
-    license: "MIT",
+    license: "CC-BY-4.0",
     difficulty: 4,
     timeToHelloWorld: 35,
     maturity: 8,
@@ -507,14 +523,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 81,
-    stars: 50000,
+    activityScore: 6,
+    popularity: 91,
+    stars: 61099,
     pricing: "Free / OSS",
     bestFor:
       "Research-style multi-agent conversations with a visual builder and event tracing built in.",
     repo: "https://github.com/microsoft/autogen",
     docs: "https://microsoft.github.io/autogen/",
+    score: 7.9,
   },
   {
     id: "langgraph-agent-template",
@@ -536,13 +553,14 @@ const KITS = [
     requiresKey: true,
     localFirst: false,
     activityScore: 10,
-    popularity: 80,
-    stars: 14000,
+    popularity: 88,
+    stars: 42102,
     pricing: "Free / OSS (paid platform tier)",
     bestFor:
       "Long-running, stateful agents with retries, human-in-the-loop and checkpointed memory.",
     repo: "https://github.com/langchain-ai/langgraph",
     docs: "https://langchain-ai.github.io/langgraph/",
+    score: 8.2,
   },
   {
     id: "openai-agents-sdk",
@@ -563,14 +581,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 84,
-    stars: 16000,
+    activityScore: 10,
+    popularity: 85,
+    stars: 29622,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "A small, explicit agent loop with handoffs and guardrails — minimal magic, fast to read.",
     repo: "https://github.com/openai/openai-agents-python",
     docs: "https://openai.github.io/openai-agents-python/",
+    score: 7.2,
   },
   {
     id: "google-adk",
@@ -591,14 +610,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 76,
-    stars: 12000,
+    activityScore: 10,
+    popularity: 82,
+    stars: 21592,
     pricing: "Free / OSS (you pay model usage)",
     bestFor:
       "Enterprise-flavoured agents that need evaluation, tracing and multi-agent orchestration on Vertex.",
     repo: "https://github.com/google/adk-python",
     docs: "https://google.github.io/adk-docs/",
+    score: 7.7,
   },
   {
     id: "aws-bedrock-agents",
@@ -619,14 +639,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 7,
-    popularity: 66,
-    stars: 4000,
+    activityScore: 6,
+    popularity: 55,
+    stars: 812,
     pricing: "Pay-as-you-go (AWS)",
     bestFor:
       "Teams already on AWS that need IAM-scoped agents talking to internal data sources.",
     repo: "https://github.com/awslabs/amazon-bedrock-agent-samples",
     docs: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+    score: 7.2,
   },
   {
     id: "azure-ai-foundry-samples",
@@ -647,14 +668,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 70,
-    stars: 3000,
+    activityScore: 10,
+    popularity: 52,
+    stars: 548,
     pricing: "Pay-as-you-go (Azure)",
     bestFor:
       "Regulated environments that need private networking, content filters and audit trails out of the box.",
     repo: "https://github.com/Azure-Samples/azureai-samples",
     docs: "https://learn.microsoft.com/azure/ai-foundry/",
+    score: 7.5,
   },
   {
     id: "supabase-vector-starter",
@@ -675,14 +697,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 77,
-    stars: 8000,
+    activityScore: 10,
+    popularity: 96,
+    stars: 110535,
     pricing: "Free tier + usage-based",
     bestFor:
       "One Postgres for auth, rows and embeddings — the shortest stack that still looks like a real product.",
     repo: "https://github.com/supabase/supabase",
     docs: "https://supabase.com/docs/guides/ai",
+    score: 8.1,
   },
   {
     id: "firebase-genkit",
@@ -703,14 +726,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 68,
-    stars: 4000,
+    activityScore: 10,
+    popularity: 72,
+    stars: 6453,
     pricing: "Free / OSS (you pay cloud usage)",
     bestFor:
       "Shipping AI flows with a local dev UI, tracing and evaluations wired in from the first commit.",
     repo: "https://github.com/firebase/genkit",
     docs: "https://firebase.google.com/docs/genkit",
+    score: 7.3,
   },
   {
     id: "huggingface-transformers-starter",
@@ -731,14 +755,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 95,
-    stars: 130000,
+    activityScore: 10,
+    popularity: 99,
+    stars: 166489,
     pricing: "Free / OSS",
     bestFor:
       "The default on-ramp for running, fine-tuning or quantising any open model yourself.",
     repo: "https://github.com/huggingface/transformers",
     docs: "https://huggingface.co/docs/transformers/index",
+    score: 9.4,
   },
   {
     id: "peft-lora-tuning",
@@ -759,14 +784,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 72,
-    stars: 17000,
+    activityScore: 10,
+    popularity: 82,
+    stars: 21709,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Adapting a base model to your domain on a single GPU without full fine-tuning costs.",
     repo: "https://github.com/huggingface/peft",
     docs: "https://huggingface.co/docs/peft/index",
+    score: 7.7,
   },
   {
     id: "unsloth-notebook",
@@ -787,14 +813,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 69,
-    stars: 40000,
+    activityScore: 10,
+    popularity: 93,
+    stars: 76548,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Fine-tuning on a free Colab GPU when memory, not patience, is the constraint.",
     repo: "https://github.com/unslothai/unsloth",
     docs: "https://docs.unsloth.ai/",
+    score: 7.4,
   },
   {
     id: "axolotl-tuning",
@@ -815,14 +842,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 7,
-    popularity: 61,
-    stars: 9000,
+    activityScore: 10,
+    popularity: 78,
+    stars: 12490,
     pricing: "Free / OSS (GPU required)",
     bestFor:
       "Reproducible multi-GPU training runs driven entirely by versioned YAML configs.",
     repo: "https://github.com/axolotl-ai-cloud/axolotl",
     docs: "https://docs.axolotl.ai/",
+    score: 6.7,
   },
   {
     id: "langfuse-observability",
@@ -843,14 +871,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 75,
-    stars: 10000,
+    activityScore: 10,
+    popularity: 86,
+    stars: 34912,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Seeing what your prompts actually did in production — traces, costs and scores in one place.",
     repo: "https://github.com/langfuse/langfuse",
     docs: "https://langfuse.com/docs",
+    score: 8.1,
   },
   {
     id: "ragas-evaluation",
@@ -871,14 +900,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 7,
-    popularity: 64,
-    stars: 8000,
+    activityScore: 4,
+    popularity: 80,
+    stars: 15814,
     pricing: "Free / OSS",
     bestFor:
       "Putting numbers — faithfulness, context precision — on a RAG pipeline before you ship it.",
     repo: "https://github.com/explodinggradients/ragas",
     docs: "https://docs.ragas.io/",
+    score: 6.9,
   },
   {
     id: "promptfoo-evals",
@@ -899,14 +929,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: true,
-    activityScore: 9,
-    popularity: 71,
-    stars: 6000,
+    activityScore: 10,
+    popularity: 84,
+    stars: 25346,
     pricing: "Free / OSS",
     bestFor:
       "A CLI-first regression suite that catches prompt changes before your users do.",
     repo: "https://github.com/promptfoo/promptfoo",
     docs: "https://www.promptfoo.dev/docs/quickstart/",
+    score: 8.1,
   },
   {
     id: "opik-eval-starter",
@@ -927,14 +958,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 58,
-    stars: 7000,
+    activityScore: 10,
+    popularity: 83,
+    stars: 22187,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Tracking prompt experiments side by side the way you already track ML runs.",
     repo: "https://github.com/comet-ml/opik",
     docs: "https://www.comet.com/docs/opik/",
+    score: 7.1,
   },
   {
     id: "fiftyone-vision",
@@ -955,14 +987,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 63,
-    stars: 9000,
+    activityScore: 10,
+    popularity: 77,
+    stars: 11105,
     pricing: "Free / OSS (paid enterprise tier)",
     bestFor:
       "Curating, visualising and debugging messy image datasets before they poison your model.",
     repo: "https://github.com/voxel51/fiftyone",
     docs: "https://docs.voxel51.com/",
+    score: 7.7,
   },
   {
     id: "ultralytics-yolo",
@@ -983,14 +1016,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 86,
-    stars: 45000,
+    activityScore: 10,
+    popularity: 91,
+    stars: 61870,
     pricing: "Free / OSS (AGPL or commercial licence)",
     bestFor:
       "Real-time object detection where you need a working model today and training tomorrow.",
     repo: "https://github.com/ultralytics/ultralytics",
     docs: "https://docs.ultralytics.com/",
+    score: 8.9,
   },
   {
     id: "comfyui-workflows",
@@ -1012,13 +1046,14 @@ const KITS = [
     requiresKey: false,
     localFirst: true,
     activityScore: 10,
-    popularity: 88,
-    stars: 80000,
+    popularity: 98,
+    stars: 134342,
     pricing: "Free / OSS",
     bestFor:
       "Node-graph image generation pipelines you can actually version, share and extend with custom nodes.",
     repo: "https://github.com/comfyanonymous/ComfyUI",
     docs: "https://docs.comfy.org/",
+    score: 8.6,
   },
   {
     id: "automatic1111-webui",
@@ -1039,14 +1074,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 7,
-    popularity: 82,
-    stars: 140000,
+    activityScore: 4,
+    popularity: 99,
+    stars: 165049,
     pricing: "Free / OSS",
     bestFor:
       "The classic batteries-included diffusion UI with the largest extension library on the planet.",
     repo: "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
     docs: "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki",
+    score: 8,
   },
   {
     id: "diffusers-starter",
@@ -1067,14 +1103,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 9,
-    popularity: 84,
-    stars: 28000,
+    activityScore: 10,
+    popularity: 86,
+    stars: 34567,
     pricing: "Free / OSS (GPU recommended)",
     bestFor:
       "Scriptable diffusion when you need pipelines in code rather than clicking through a GUI.",
     repo: "https://github.com/huggingface/diffusers",
     docs: "https://huggingface.co/docs/diffusers/index",
+    score: 8.9,
   },
   {
     id: "whisper-cpp-starter",
@@ -1095,14 +1132,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 8,
-    popularity: 79,
-    stars: 42000,
+    activityScore: 10,
+    popularity: 90,
+    stars: 53847,
     pricing: "Free / OSS",
     bestFor:
       "Offline, fast speech-to-text on CPU — no cloud round trip and no per-minute billing.",
     repo: "https://github.com/ggml-org/whisper.cpp",
     docs: "https://github.com/ggml-org/whisper.cpp/tree/master/examples",
+    score: 7.9,
   },
   {
     id: "pipecat-voice",
@@ -1123,14 +1161,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 67,
-    stars: 6000,
+    activityScore: 10,
+    popularity: 80,
+    stars: 15756,
     pricing: "Free / OSS (you pay STT/TTS/LLM usage)",
     bestFor:
       "Real-time voice agents — barge-in, interruption and turn-taking handled by the framework.",
     repo: "https://github.com/pipecat-ai/pipecat",
     docs: "https://docs.pipecat.ai/",
+    score: 7.3,
   },
   {
     id: "litellm-proxy",
@@ -1151,14 +1190,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: true,
-    activityScore: 9,
-    popularity: 76,
-    stars: 20000,
+    activityScore: 10,
+    popularity: 91,
+    stars: 59354,
     pricing: "Free / OSS",
     bestFor:
       "One OpenAI-shaped endpoint in front of every provider, with budgets, keys and fallbacks.",
     repo: "https://github.com/BerriAI/litellm",
     docs: "https://docs.litellm.ai/",
+    score: 7.9,
   },
   {
     id: "guardrails-ai-starter",
@@ -1179,14 +1219,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 65,
-    stars: 6000,
+    activityScore: 10,
+    popularity: 74,
+    stars: 7441,
     pricing: "Free / OSS (paid cloud tier)",
     bestFor:
       "Forcing structured, schema-valid model output instead of grepping raw text for JSON.",
     repo: "https://github.com/guardrails-ai/guardrails",
     docs: "https://www.guardrailsai.com/docs",
+    score: 7.2,
   },
   {
     id: "nemo-guardrails",
@@ -1207,14 +1248,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 62,
-    stars: 5000,
+    activityScore: 10,
+    popularity: 73,
+    stars: 7179,
     pricing: "Free / OSS",
     bestFor:
       "Conversational policy rails — keep a bot on-topic and inside its lane without prompt whack-a-mole.",
     repo: "https://github.com/NVIDIA/NeMo-Guardrails",
     docs: "https://docs.nvidia.com/nemo/guardrails/",
+    score: 7,
   },
   {
     id: "mcp-quickstart",
@@ -1235,14 +1277,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: false,
     localFirst: true,
-    activityScore: 10,
-    popularity: 86,
-    stars: 20000,
+    activityScore: 9,
+    popularity: 94,
+    stars: 90535,
     pricing: "Free / OSS",
     bestFor:
       "Exposing your own tools and data to any MCP-capable assistant once, instead of per-client integrations.",
     repo: "https://github.com/modelcontextprotocol/servers",
     docs: "https://modelcontextprotocol.io/quickstart/server",
+    score: 8.5,
   },
   {
     id: "openai-realtime-starter",
@@ -1263,14 +1306,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 74,
-    stars: 4000,
+    activityScore: 2,
+    popularity: 68,
+    stars: 3614,
     pricing: "Pay-as-you-go (OpenAI)",
     bestFor:
       "Low-latency speech-to-speech over WebRTC when every extra round trip is audible.",
     repo: "https://github.com/openai/openai-realtime-console",
     docs: "https://platform.openai.com/docs/guides/realtime",
+    score: 6.6,
   },
   {
     id: "semantic-kernel-starter",
@@ -1291,14 +1335,15 @@ const KITS = [
     hasEvals: false,
     requiresKey: true,
     localFirst: false,
-    activityScore: 8,
-    popularity: 69,
-    stars: 25000,
+    activityScore: 10,
+    popularity: 85,
+    stars: 28587,
     pricing: "Free / OSS",
     bestFor:
       ".NET shops that want plugins, planners and memory in the language their services already speak.",
     repo: "https://github.com/microsoft/semantic-kernel",
     docs: "https://learn.microsoft.com/semantic-kernel/",
+    score: 7.7,
   },
   {
     id: "dspy-optimizer",
@@ -1319,14 +1364,15 @@ const KITS = [
     hasEvals: true,
     requiresKey: true,
     localFirst: false,
-    activityScore: 9,
-    popularity: 71,
-    stars: 20000,
+    activityScore: 10,
+    popularity: 87,
+    stars: 38189,
     pricing: "Free / OSS",
     bestFor:
       "Replacing hand-tuned prompt strings with compiled, metric-driven programs.",
     repo: "https://github.com/stanfordnlp/dspy",
     docs: "https://dspy.ai/",
+    score: 7.3,
   },
   {
     id: "smith-agentic-bench",
@@ -1348,53 +1394,13 @@ const KITS = [
     requiresKey: true,
     localFirst: true,
     activityScore: 6,
-    popularity: 45,
-    stars: 1200,
+    popularity: 82,
+    stars: 19489,
     pricing: "Free / OSS",
     bestFor:
       "Scoring agent runs on task success and step count when you have no formal eval set yet.",
     repo: "https://github.com/openai/evals",
     docs: "https://github.com/openai/evals/blob/main/README.md",
+    score: 5.3,
   },
 ];
-
-/* --------------------------------------------------------------------------
-   Derived helpers — kept here so every module shares one source of truth.
-   -------------------------------------------------------------------------- */
-
-const CATEGORIES = [...new Set(KITS.map((k) => k.category))].sort();
-
-const LANGUAGES = [...new Set(KITS.flatMap((k) => k.languages))].sort();
-
-const LICENSES = [...new Set(KITS.map((k) => k.license))].sort();
-
-const ADVANTAGE_LABELS = {
-  hasUI: "Ships a UI",
-  hasBackend: "Backend / service included",
-  hasEvals: "Eval & tracing hooks",
-  requiresKey: "Needs an API key",
-  localFirst: "Runs fully local",
-};
-
-/** Weighted 0-10 score used for ranking and the radar/scatter charts. */
-function computeKitScore(kit) {
-  const raw =
-    kit.maturity * 0.22 +
-    kit.ecosystem * 0.16 +
-    kit.docsQuality * 0.16 +
-    kit.activityScore * 0.16 +
-    kit.costFriendliness * 0.12 +
-    (kit.popularity / 10) * 0.18;
-  return Math.round(raw * 10) / 10;
-}
-
-/** 0-10 → 1-5 dot rating, friendlier to read than a decimal. */
-function difficultyLabel(difficulty) {
-  return (
-    ["", "Beginner", "Easy", "Moderate", "Advanced", "Expert"][difficulty] || "Unknown"
-  );
-}
-
-KITS.forEach((kit) => {
-  kit.score = computeKitScore(kit);
-});

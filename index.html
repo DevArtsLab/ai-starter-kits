@@ -47,7 +47,6 @@
                 >Shortlist <span class="nav-count" id="shortlistNavCount">0</span></a
               >
             </li>
-            <li><a href="#submit-section" class="topnav-link">Submit</a></li>
           </ul>
         </nav>
 
@@ -398,125 +397,13 @@
           </p>
         </div>
       </section>
-
-      <section class="panel" id="submit-section" aria-labelledby="submit-heading">
-        <header class="panel-head">
-          <div>
-            <h2 id="submit-heading">Submit a kit</h2>
-            <p class="panel-sub">
-              Spotted a starter kit that belongs here? Add it — submissions are stored
-              in the <code>kit_submissions</code> table.
-            </p>
-          </div>
-        </header>
-
-        <div class="submit-layout">
-          <form class="submit-form" id="submitForm" novalidate>
-            <div class="form-row">
-              <div class="field">
-                <label class="field-label" for="subName"
-                  >Kit name <span class="req">*</span></label
-                >
-                <input
-                  type="text"
-                  id="subName"
-                  name="kit_name"
-                  required
-                  maxlength="80"
-                  placeholder="e.g. Pocketflow Agent Starter"
-                />
-              </div>
-              <div class="field">
-                <label class="field-label" for="subOrg"
-                  >Maintainer / org <span class="req">*</span></label
-                >
-                <input
-                  type="text"
-                  id="subOrg"
-                  name="org"
-                  required
-                  maxlength="80"
-                  placeholder="e.g. DevArts Labs"
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label class="field-label" for="subCategory">Category</label>
-                <select id="subCategory" name="category">
-                  <option value="">Choose a category…</option>
-                </select>
-              </div>
-              <div class="field">
-                <label class="field-label" for="subUrl">Repo / product URL</label>
-                <input
-                  type="url"
-                  id="subUrl"
-                  name="repo_url"
-                  maxlength="300"
-                  placeholder="https://github.com/…"
-                />
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="field-label" for="subDescription"
-                >What makes it useful? <span class="req">*</span></label
-              >
-              <textarea
-                id="subDescription"
-                name="description"
-                rows="4"
-                required
-                maxlength="600"
-                placeholder="One or two sentences on the problem it solves and who it suits."
-              ></textarea>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label class="field-label" for="subAuthor">Your handle</label>
-                <input
-                  type="text"
-                  id="subAuthor"
-                  name="submitted_by"
-                  maxlength="60"
-                  placeholder="optional"
-                />
-              </div>
-              <div class="field field-submit">
-                <button type="submit" class="btn btn-primary" id="submitBtn">
-                  <i class="fas fa-paper-plane" aria-hidden="true"></i> Send kit
-                </button>
-              </div>
-            </div>
-
-            <p class="form-note" id="submitNote" role="status" aria-live="polite"></p>
-            <p class="form-disclaimer">
-              <i class="fas fa-shield-halved" aria-hidden="true"></i>
-              Public, unauthenticated form — anything submitted is visible to every
-              visitor and can be removed with the delete button.
-            </p>
-          </form>
-
-          <div class="submit-queue">
-            <h3>Recent submissions</h3>
-            <div id="submissionList" class="submission-list">
-              <p class="empty-state">
-                <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading…
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="page-foot">
       <p>
-        <strong>StarterKit Radar</strong> — a static dashboard. Catalog data ships in
-        <code>js/kits-data.js</code>; shortlists and submissions persist through the
-        RESTful Table API.
+        <strong>StarterKit Radar</strong> — a static dashboard. Catalog data lives in
+        <code>data/kits.json</code> and is refreshed weekly from the GitHub API;
+        shortlists persist through the RESTful Table API.
       </p>
       <p class="foot-note">
         No affiliation with the projects listed. Names and logos belong to their
@@ -538,6 +425,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <script src="js/kits-data.js"></script>
+    <script src="js/kits-meta.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

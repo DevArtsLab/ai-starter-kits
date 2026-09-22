@@ -8,8 +8,7 @@
      4. Comparison table
      5. ECharts insights
      6. Shortlist CRUD
-     7. Community submissions CRUD
-     8. Misc: theme, nav highlighting, CSV export, boot
+     7. Misc: theme, nav highlighting, CSV export, boot
    ========================================================================== */
 (function () {
   "use strict";
@@ -1028,122 +1027,7 @@
   }
 
   /* ======================================================================== *
-   * 7. Community submissions
-   * ======================================================================== */
-
-  async function loadSubmissions() {
-    const host = $("#submissionList");
-    const rows = await listRows("kit_submissions");
-    rows.sort((a, b) => Number(b.created_at || 0) - Number(a.created_at || 0));
-
-    if (rows.length === 0) {
-      host.innerHTML =
-        '<p class="empty-state"><i class="fas fa-inbox" aria-hidden="true"></i>No submissions yet — yours would be the first.</p>';
-      return;
-    }
-
-    host.innerHTML = rows
-      .slice(0, 40)
-      .map((row) => {
-        const url = safeUrl(row.repo_url);
-        return [
-          '<article class="submission-item">',
-          "  <header>",
-          "    <strong>" + esc(row.kit_name || "Untitled kit") + "</strong>",
-          '    <span class="sub-org">' +
-            esc(row.org || "unknown maintainer") +
-            "</span>",
-          "  </header>",
-          "  <p>" + esc(row.description || "") + "</p>",
-          "  <footer>",
-          "    <span>" +
-            esc(row.category || "Uncategorised") +
-            (row.submitted_by ? " · by " + esc(row.submitted_by) : "") +
-            " · " +
-            esc(formatDate(row.created_at) || "just now") +
-            "</span>",
-          '    <span class="cell-actions">',
-          url
-            ? '<a class="btn btn-sm" href="' +
-              esc(url) +
-              '" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Link</a>'
-            : "",
-          '      <button type="button" class="btn btn-sm btn-danger" data-remove-sub="' +
-            esc(row.id) +
-            '"><i class="fas fa-trash-can"></i></button>',
-          "    </span>",
-          "  </footer>",
-          "</article>",
-        ].join("");
-      })
-      .join("\n");
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const form = $("#submitForm");
-    const note = $("#submitNote");
-    const button = $("#submitBtn");
-
-    const data = {
-      kit_name: $("#subName").value.trim(),
-      org: $("#subOrg").value.trim(),
-      category: $("#subCategory").value,
-      repo_url: $("#subUrl").value.trim(),
-      description: $("#subDescription").value.trim(),
-      submitted_by: $("#subAuthor").value.trim(),
-    };
-
-    const missing = [];
-    if (!data.kit_name) missing.push("kit name");
-    if (!data.org) missing.push("maintainer");
-    if (!data.description) missing.push("description");
-
-    ["#subName", "#subOrg", "#subDescription"].forEach((sel) =>
-      $(sel).classList.remove("invalid"),
-    );
-    if (missing.length) {
-      missing.forEach((label) => {
-        if (label === "kit name") $("#subName").classList.add("invalid");
-        if (label === "maintainer") $("#subOrg").classList.add("invalid");
-        if (label === "description") $("#subDescription").classList.add("invalid");
-      });
-      note.className = "form-note err";
-      setText(note, "Please fill in: " + missing.join(", ") + ".");
-      return;
-    }
-
-    if (data.repo_url && !safeUrl(data.repo_url)) {
-      $("#subUrl").classList.add("invalid");
-      note.className = "form-note err";
-      setText(note, "That URL does not look like a valid http(s) link.");
-      return;
-    }
-
-    button.disabled = true;
-    note.className = "form-note";
-    setText(note, "Sending…");
-
-    try {
-      await addRow(
-        "kit_submissions",
-        Object.assign({ created: new Date().toISOString() }, data),
-      );
-      form.reset();
-      note.className = "form-note ok";
-      setText(note, "Thanks — “" + data.kit_name + "” is queued for review.");
-      toast("Submission received: " + data.kit_name, "ok");
-      await loadSubmissions();
-    } catch (err) {
-      note.className = "form-note err";
-      setText(note, "Could not save that: " + (err.message || "unknown error"));
-    } finally {
-      button.disabled = false;
-    }
-  }
-
-  /* ======================================================================== *
-   * 8. Misc — theme, nav, export, wiring, boot
+   * 7. Misc — theme, nav, export, wiring, boot
    * ======================================================================== */
 
   function applyTheme(theme) {
@@ -1289,17 +1173,6 @@
     fillSelect($("#categorySelect"), CATEGORIES, "All categories");
     fillSelect($("#languageSelect"), LANGUAGES, "All languages");
     fillSelect($("#licenseSelect"), LICENSES, "Any licence");
-
-    const subCategory = $("#subCategory");
-    if (subCategory) {
-      subCategory.innerHTML = '<option value="">Choose a category…</option>';
-      CATEGORIES.forEach((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        subCategory.appendChild(option);
-      });
-    }
   }
 
   function wireControls() {
@@ -1386,8 +1259,6 @@
 
     $("#exportBtn").addEventListener("click", exportCsv);
 
-    $("#submitForm").addEventListener("submit", handleSubmit);
-
     // Delegated handlers for dynamically rendered cards / rows.
     document.addEventListener("click", (event) => {
       const actionButton = event.target.closest("[data-action]");
@@ -1403,14 +1274,6 @@
       if (removeShortlist) {
         removeFromShortlist(removeShortlist.getAttribute("data-remove"));
         return;
-      }
-      const removeSubmission = event.target.closest("[data-remove-sub]");
-      if (removeSubmission) {
-        const id = removeSubmission.getAttribute("data-remove-sub");
-        deleteRow("kit_submissions", id).then(() => {
-          loadSubmissions();
-          toast("Submission deleted.", "ok");
-        });
       }
     });
 
@@ -1469,7 +1332,6 @@
     }
 
     loadShortlist({});
-    loadSubmissions();
   }
 
   if (document.readyState === "loading") {

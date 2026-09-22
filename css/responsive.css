@@ -3,19 +3,13 @@
    Breakpoints: 1180px (grids collapse), 900px (toolbar), 640px (phone)
    ========================================================================== */
 
-/* ---- wide-ish: chart pair and submit layout stack earlier than the panels */
+/* ---- wide-ish: chart pair stacks earlier than the panels */
 @media (max-width: 1180px) {
   .chart-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-  .submit-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .page-head {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .submission-list {
-    max-height: none;
   }
 }
 
@@ -154,9 +148,6 @@
     order: 3;
   }
 
-  .form-row {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .chart-box {
     height: 270px;
   }

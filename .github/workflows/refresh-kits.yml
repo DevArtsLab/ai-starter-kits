@@ -1,0 +1,37 @@
+name: Refresh kit catalog
+
+on:
+  schedule:
+    # Mondays at 06:17 UTC
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Refresh catalog metrics and regenerate kits-data.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/update-kits.mjs
+
+      - name: Commit catalog changes
+        run: |
+          if git diff --quiet -- data/kits.json js/kits-data.js; then
+            echo "No catalog changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kits.json js/kits-data.js
+          git commit -m "chore: refresh kit catalog metrics from GitHub API"
+          git push
