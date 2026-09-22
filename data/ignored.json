@@ -1,6 +1,12 @@
 {
-  "note": "Repos permanently excluded from candidate discovery. Entries here are purged from data/candidates.json and never re-added. Use full_name slugs (owner/repo).",
+  "note": "Repos permanently excluded from the catalog and from candidate discovery. Entries here are dropped from data/kits.json, purged from data/candidates.json and never re-added. Archived repos are appended automatically. Use full_name slugs (owner/repo).",
   "ignored": [
+    "openai/openai-realtime-console",
+    "mozilla-ai/llamafile",
+    "microsoft/semantic-kernel",
+    "NarimanN2/ollama-playground",
+    "BerriAI/litellm",
+    "openai/evals",
     "ykhli/local-ai-stack",
     "cirosantilli/china-dictatorship",
     "gege-circle/.github",

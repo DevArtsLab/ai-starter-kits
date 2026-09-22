@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-22T06:51:34.064Z",
+  "generated_at": "2026-09-22T08:15:01.993Z",
   "note": "Auto-discovered via GitHub search — NOT shown on the site. To promote one, add { \"name\": ..., \"repo\": <url> } to data/kits.json; update-kits.mjs fills in the remaining fields automatically.",
   "candidates": [
     {
       "full_name": "JCodesMore/ai-website-cloner-template",
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
       "description": "Clone any website with one command using AI coding agents",
-      "stars": 34763,
+      "stars": 34764,
       "license": "MIT",
       "language": "TypeScript",
       "topics": [
@@ -64,7 +64,7 @@
       "full_name": "vstorm-co/full-stack-ai-agent-template",
       "url": "https://github.com/vstorm-co/full-stack-ai-agent-template",
       "description": "Full-stack AI app generator — FastAPI + Next.js with AI Agents, RAG, streaming, auth, and 20+ integrations out of the box.",
-      "stars": 1907,
+      "stars": 1908,
       "license": "MIT",
       "language": "Python",
       "topics": [

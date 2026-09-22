@@ -167,7 +167,7 @@ dropdowns never drift from the data.
 | Field      | Type     | Notes                                   |
 | ---------- | -------- | --------------------------------------- |
 | `id`       | text     | System record id.                       |
-| `kit_id`   | text     | Catalog slug, e.g. `ollama-playground`. |
+| `kit_id`   | text     | Catalog slug, e.g. `vercel-ai-chatbot`. |
 | `kit_name` | text     | Display name captured at save time.     |
 | `note`     | text     | Why it was shortlisted.                 |
 | `added_at` | datetime | When it was shortlisted.                |

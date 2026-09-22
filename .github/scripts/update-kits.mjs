@@ -10,7 +10,8 @@
         activityScore  <- recency of pushed_at, bucketed 0-10
         popularity     <- log10(stars) normalised so the top repo scores 100
       Repos that return 404/410 are REMOVED from the catalog (logged below).
-      Archived repos stay but their activityScore is capped at 2.
+      Repos listed in data/ignored.json are also removed from the catalog.
+      Archived repos are removed and auto-appended to data/ignored.json.
    3. Enriches minimal entries: a kit listed as { "name": "...", "repo": "..." }
       gets org, description, docs, languages, licence, category and ratings
       filled in automatically (best-effort guesses from the API data).
@@ -203,6 +204,19 @@ async function detectLicense(repo) {
  * ------------------------------------------------------------ */
 
 const kits = JSON.parse(readFileSync(DATA_PATH, "utf8"));
+
+// Ignore list: permanent exclusion from catalog AND candidate discovery.
+let ignoredFile = { ignored: [] };
+if (existsSync(IGNORED_PATH)) {
+  try {
+    ignoredFile = JSON.parse(readFileSync(IGNORED_PATH, "utf8"));
+  } catch {
+    /* malformed ignore file — start empty */
+  }
+}
+const ignoredSlugs = new Set(
+  (ignoredFile.ignored || []).map((s) => s.toLowerCase()),
+);
 const fetched = await Promise.all(
   kits.map(async (kit) => {
     const slug = repoSlug(kit.repo);
@@ -218,6 +232,11 @@ const failures = [];
 const kept = [];
 
 for (const { kit, status, repo, error } of fetched) {
+  const slug = repoSlug(kit.repo);
+  if (slug && ignoredSlugs.has(slug.toLowerCase())) {
+    removed.push(`${kit.id} (ignored: ${slug})`);
+    continue;
+  }
   if (status === 404 || status === 410) {
     removed.push(`${kit.id} (${kit.repo})`);
     continue;
@@ -227,14 +246,18 @@ for (const { kit, status, repo, error } of fetched) {
     kept.push(kit);
     continue;
   }
+  if (repo.archived) {
+    removed.push(`${kit.id} (archived: ${slug})`);
+    if (slug && !ignoredSlugs.has(slug.toLowerCase())) {
+      ignoredFile.ignored.push(slug);
+      ignoredSlugs.add(slug.toLowerCase());
+    }
+    continue;
+  }
   kit.stars = repo.stargazers_count;
   const license = await detectLicense(repo);
   if (license) kit.license = license;
   kit.activityScore = activityFromPush(repo.pushed_at);
-  if (repo.archived) {
-    kit.activityScore = Math.min(kit.activityScore, 2);
-    flagged.push(`${kit.id} (archived)`);
-  }
   kept.push(Object.assign(kit, { _repo: repo }));
 }
 
@@ -331,16 +354,6 @@ const knownSlugs = new Set(
     .filter(Boolean)
     .map((s) => s.toLowerCase()),
 );
-let ignoredSlugs = new Set();
-if (existsSync(IGNORED_PATH)) {
-  try {
-    const list = JSON.parse(readFileSync(IGNORED_PATH, "utf8")).ignored || [];
-    ignoredSlugs = new Set(list.map((s) => s.toLowerCase()));
-  } catch {
-    /* malformed ignore file — ignore it */
-  }
-}
-
 const candidates = candidatesFile.candidates || [];
 const newCandidates = [];
 
@@ -409,6 +422,7 @@ writeFileSync(
   GENERATED_HEADER + "const KITS = " + JSON.stringify(kept, null, 2) + ";\n",
 );
 writeFileSync(CANDIDATES_PATH, JSON.stringify(candidatesFile, null, 2) + "\n");
+writeFileSync(IGNORED_PATH, JSON.stringify(ignoredFile, null, 2) + "\n");
 
 // Normalise output with prettier so generated files match repo formatting and
 // re-runs stay diff-free. Skipped silently if npx/prettier can't run.
