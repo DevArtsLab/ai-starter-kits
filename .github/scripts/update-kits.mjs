@@ -271,7 +271,6 @@ const knownSlugs = new Set(
     .map((s) => s.toLowerCase()),
 );
 const candidates = candidatesFile.candidates || [];
-const candidateSlugs = new Set(candidates.map((c) => c.full_name.toLowerCase()));
 const newCandidates = [];
 
 for (const { q, via } of SEARCH_QUERIES) {
@@ -284,7 +283,13 @@ for (const { q, via } of SEARCH_QUERIES) {
   }
   for (const repo of data.items || []) {
     const slug = repo.full_name.toLowerCase();
-    if (repo.archived || knownSlugs.has(slug) || candidateSlugs.has(slug)) continue;
+    if (repo.archived || knownSlugs.has(slug)) continue;
+    const existing = candidates.find((c) => c.full_name.toLowerCase() === slug);
+    if (existing) {
+      existing.stars = repo.stargazers_count;
+      existing.pushed_at = repo.pushed_at;
+      continue;
+    }
     const haystack = `${repo.name} ${repo.description || ""}`;
     if (!KIT_WORDS.test(haystack)) continue;
     const entry = {
@@ -301,13 +306,14 @@ for (const { q, via } of SEARCH_QUERIES) {
       first_seen: new Date().toISOString().slice(0, 10),
     };
     candidates.push(entry);
-    candidateSlugs.add(slug);
     newCandidates.push(entry.full_name);
   }
 }
 
-candidates.sort((a, b) => (b.stars || 0) - (a.stars || 0));
-const trimmed = candidates.slice(0, MAX_CANDIDATES);
+// Drop candidates that have since been promoted into the catalog, then cap.
+const active = candidates.filter((c) => !knownSlugs.has(c.full_name.toLowerCase()));
+active.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+const trimmed = active.slice(0, MAX_CANDIDATES);
 candidatesFile = {
   generated_at: new Date().toISOString(),
   note:
