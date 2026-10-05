@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-28T13:57:50.900Z",
+  "generated_at": "2026-10-05T14:42:34.273Z",
   "note": "Auto-discovered via GitHub search — NOT shown on the site. To promote one, add { \"name\": ..., \"repo\": <url> } to data/kits.json; update-kits.mjs fills in the remaining fields automatically.",
   "candidates": [
     {
       "full_name": "JCodesMore/ai-website-cloner-template",
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
       "description": "Clone any website with one command using AI coding agents",
-      "stars": 35390,
+      "stars": 35807,
       "license": "MIT",
       "language": "TypeScript",
       "topics": [
@@ -30,7 +30,7 @@
         "web-scraping",
         "website-clone"
       ],
-      "pushed_at": "2026-09-27T04:51:46Z",
+      "pushed_at": "2026-10-05T08:07:48Z",
       "suggested_category": "Agent Framework",
       "found_via": "agent template",
       "first_seen": "2026-09-22"
@@ -39,7 +39,7 @@
       "full_name": "wassim249/fastapi-langgraph-agent-production-ready-template",
       "url": "https://github.com/wassim249/fastapi-langgraph-agent-production-ready-template",
       "description": "A production-ready FastAPI template for building AI agent applications with LangGraph integration. This template provides a robust foundation for building scalable, secure, and maintainable AI agent services.",
-      "stars": 2679,
+      "stars": 2691,
       "license": "MIT",
       "language": "Python",
       "topics": [
@@ -64,7 +64,7 @@
       "full_name": "vstorm-co/full-stack-ai-agent-template",
       "url": "https://github.com/vstorm-co/full-stack-ai-agent-template",
       "description": "Full-stack AI app generator — FastAPI + Next.js with AI Agents, RAG, streaming, auth, and 20+ integrations out of the box.",
-      "stars": 1919,
+      "stars": 1927,
       "license": "MIT",
       "language": "Python",
       "topics": [
@@ -89,7 +89,7 @@
         "vstorm",
         "websocket"
       ],
-      "pushed_at": "2026-09-21T20:37:46Z",
+      "pushed_at": "2026-10-05T13:06:48Z",
       "suggested_category": "RAG / Retrieval",
       "found_via": "agent template",
       "first_seen": "2026-09-22"
@@ -98,7 +98,7 @@
       "full_name": "EtienneLescot/n8n-as-code",
       "url": "https://github.com/EtienneLescot/n8n-as-code",
       "description": "Give your AI agent n8n superpowers. 537 nodes with full schemas, 7,700+ templates, Git-like sync, and TypeScript workflows.",
-      "stars": 1586,
+      "stars": 1593,
       "license": "MIT",
       "language": "TypeScript",
       "topics": [
@@ -115,7 +115,7 @@
         "vscode",
         "workflow-automation"
       ],
-      "pushed_at": "2026-09-26T03:24:12Z",
+      "pushed_at": "2026-10-03T03:34:05Z",
       "suggested_category": "Agent Framework",
       "found_via": "agent template",
       "first_seen": "2026-09-22"
@@ -124,7 +124,7 @@
       "full_name": "cloudflare/agents-starter",
       "url": "https://github.com/cloudflare/agents-starter",
       "description": "A starter kit for building ai agents on Cloudflare",
-      "stars": 1340,
+      "stars": 1342,
       "license": "MIT",
       "language": "TypeScript",
       "topics": ["agents", "ai", "cloudflare", "durable-objects"],
